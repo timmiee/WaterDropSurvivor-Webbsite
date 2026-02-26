@@ -944,7 +944,7 @@ function showTab(t){
     var pg=document.getElementById('page-'+t);if(pg)pg.classList.add('active');
     var btn=document.querySelector('[data-tab="'+t+'"]');if(btn)btn.classList.add('active');
     document.getElementById('left-tabs').classList.remove('open');
-    if(btn){var ti=document.getElementById('mobile-title');if(ti)ti.textContent=btn.textContent.trim();}
+    if(btn){var tn=btn.textContent.trim();var ti=document.getElementById('mobile-title');if(ti)ti.textContent=tn;document.title=tn+' \u2014 WaterDrop Survivor';}
     window.scrollTo(0,0);
     if(t==='gameinfo'){
         document.getElementById('gameinfo-stats-logged-in').style.display=isLoggedIn?'block':'none';
