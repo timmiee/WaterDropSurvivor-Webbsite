@@ -112,9 +112,24 @@
         .media-placeholder .picon{font-size:38px;opacity:.45;}
 
         /* GALLERY */
-        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:18px;}
-        .gallery-item{aspect-ratio:4/3;background:var(--panel);border:3px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:11px;text-align:center;cursor:pointer;transition:border-color .2s,box-shadow .2s;}
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:18px;}
+        .gallery-item{aspect-ratio:9/16;background:var(--panel);border:3px solid var(--border);overflow:hidden;position:relative;cursor:pointer;transition:border-color .2s,box-shadow .2s;}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .3s;}
         .gallery-item:hover{border-color:var(--blue-l);box-shadow:0 0 12px rgba(41,121,204,.25);}
+        .gallery-item:hover img{transform:scale(1.04);}
+        .gallery-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(7,12,22,.85);color:var(--text);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 7px;text-align:center;}
+        .feat-img{width:100%;display:block;object-fit:cover;object-position:top;border:3px solid var(--border);box-shadow:4px 4px 0 var(--ink);}
+        .feat-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;}
+        .feat-pair-item{border:3px solid var(--blue);box-shadow:4px 4px 0 var(--ink);overflow:hidden;}
+        .feat-pair-item img{width:100%;display:block;object-fit:cover;object-position:top;max-height:340px;}
+        .feat-pair-label{background:var(--blue-d);border-top:2px solid var(--blue);padding:8px 12px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:var(--yellow);}
+        .gallery-item:focus,.feat-pair-item:focus{outline:3px solid var(--yellow);outline-offset:2px;}
+        /* LIGHTBOX */
+        #lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:1000;align-items:center;justify-content:center;padding:16px;}
+        #lightbox.open{display:flex;}
+        #lightbox img{max-height:92vh;max-width:92vw;object-fit:contain;border:3px solid var(--blue);box-shadow:0 0 50px rgba(0,0,0,.9);}
+        #lightbox-close{position:absolute;top:16px;right:20px;background:none;border:2px solid var(--yellow);color:var(--yellow);font-size:22px;width:38px;height:38px;cursor:pointer;font-family:inherit;line-height:1;display:flex;align-items:center;justify-content:center;}
+        #lightbox-close:hover{background:var(--yellow);color:var(--ink);}
 
         /* RARITY */
         .rarity-card{border:3px solid var(--border);padding:12px 13px;margin-bottom:10px;background:var(--panel);}
@@ -279,7 +294,7 @@
     </div>
     <div class="home-cover">
         <div class="cover-main">
-            <div style="position:absolute;top:12px;right:12px;background:var(--blue-d);border:2px dashed var(--yellow);padding:5px 9px;font-size:9px;color:var(--yellow);letter-spacing:1px;text-transform:uppercase;opacity:.8;">[ Developer Logo ]</div>
+            <img src="IMG_1091.png" alt="WaterDrop Survivor – Game Screen" onclick="showTab('images')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){showTab('images');}" style="position:absolute;top:12px;right:12px;width:88px;border:2px solid var(--yellow);box-shadow:3px 3px 0 var(--ink);cursor:pointer;object-fit:cover;object-position:top;" loading="lazy" title="View all screenshots">
             <div class="cover-drop">&#128167;</div>
             <div class="cover-title">WaterDrop<br>Survivor</div>
             <div class="cover-alpha">Alpha v0.390</div>
@@ -382,13 +397,9 @@
                     <div class="stat-row"><span class="stat-label">Platform</span><span class="text-yellow" style="font-weight:900;">Web / Browser</span></div>
                     <div class="stat-row"><span class="stat-label">Developer</span><span class="text-yellow" style="font-weight:900;">TimmieTooth (Solo)</span></div>
                 </div>
-                <div>
-                    <div class="media-placeholder" style="aspect-ratio:4/3;" role="img" aria-label="Game preview placeholder">
-                        <span class="picon">&#127918;</span>
-                        <strong>[ Game Preview ]</strong>
-                        <span style="font-size:11px;">WebGL canvas embed</span>
+                    <div>
+                        <img src="IMG_1059.png" alt="WaterDrop Survivor – Live Gameplay" class="feat-img" onclick="openLightbox('IMG_1059.png','WaterDrop Survivor – Live Gameplay')" style="cursor:pointer;max-height:340px;aspect-ratio:9/16;" loading="lazy">
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -481,21 +492,56 @@
             <div class="dev-note">&#128221; Image upload is a placeholder &mdash; backend storage integration coming in a future update.</div>
         </div>
     </div>
-    <div class="panel">
-        <div class="panel-header"><h2>&#128451;&#65039; Screenshot Gallery</h2></div>
-        <div class="panel-body">
-            <div class="gallery-grid">
-                <div class="gallery-item"><div style="text-align:center;padding:10px;"><div style="font-size:28px;">&#127783;&#65039;</div><div style="font-size:10px;color:var(--text2);margin-top:5px;">Rainstorm Level</div></div></div>
-                <div class="gallery-item"><div style="text-align:center;padding:10px;"><div style="font-size:28px;">&#9978;&#65039;</div><div style="font-size:10px;color:var(--text2);margin-top:5px;">Camp Base</div></div></div>
-                <div class="gallery-item"><div style="text-align:center;padding:10px;"><div style="font-size:28px;">&#9876;&#65039;</div><div style="font-size:10px;color:var(--text2);margin-top:5px;">Combat Scene</div></div></div>
-                <div class="gallery-item"><div style="text-align:center;padding:10px;"><div style="font-size:28px;">&#127959;&#65039;</div><div style="font-size:10px;color:var(--text2);margin-top:5px;">Building Phase</div></div></div>
-                <div class="gallery-item"><div style="text-align:center;padding:10px;"><div style="font-size:28px;">&#128167;</div><div style="font-size:10px;color:var(--text2);margin-top:5px;">Drop Collection</div></div></div>
-                <div class="gallery-item"><div style="text-align:center;padding:10px;"><div style="font-size:28px;">&#128203;</div><div style="font-size:10px;color:var(--text2);margin-top:5px;">[ Add Screenshot ]</div></div></div>
+        <div class="panel">
+            <div class="panel-header"><h2>&#9889; Featured Screenshots</h2></div>
+            <div class="panel-body">
+                <div class="feat-pair">
+                    <div class="feat-pair-item">
+                        <img src="IMG_1061.png" alt="Tesla Tower – Dark Woods" onclick="openLightbox('IMG_1061.png','Tesla Tower – Dark Woods')" style="cursor:pointer;">
+                        <div class="feat-pair-label">&#9889; Tesla Tower – Dark Woods</div>
+                    </div>
+                    <div class="feat-pair-item">
+                        <img src="IMG_1068.png" alt="Perk Unlock – Level Up Boxes" onclick="openLightbox('IMG_1068.png','Perk Unlock – Level Up Boxes')" style="cursor:pointer;">
+                        <div class="feat-pair-label">&#11014; Perk Unlock / Level Up</div>
+                    </div>
+                </div>
+                <div class="feat-pair">
+                    <div class="feat-pair-item">
+                        <img src="IMG_1091.png" alt="Menu / Title Screen" onclick="openLightbox('IMG_1091.png','Menu / Title Screen')" style="cursor:pointer;">
+                        <div class="feat-pair-label">&#127968; Menu / Title Screen</div>
+                    </div>
+                    <div class="feat-pair-item">
+                        <img src="IMG_1075.png" alt="In-Game Menu" onclick="openLightbox('IMG_1075.png','In-Game Menu')" style="cursor:pointer;">
+                        <div class="feat-pair-label">&#128507; In-Game Menu</div>
+                    </div>
+                </div>
             </div>
-            <div style="text-align:center;padding:18px 0;color:var(--text2);font-size:11px;letter-spacing:3px;border-top:1px solid var(--border);">&#8595; SCROLL FOR MORE &nbsp;&middot;&nbsp; [ TURN PAGE ]</div>
-            <div class="thought-bubble">More screenshots will be added as the game develops. Upload your own once the feature goes live!<div class="dots"><span></span><span></span><span></span></div></div>
         </div>
-    </div>
+        <div class="panel">
+            <div class="panel-header"><h2>&#128451;&#65039; All Screenshots</h2></div>
+            <div class="panel-body">
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('IMG_1059.png','Forest Level – Wave 25')"><img src="IMG_1059.png" alt="Forest Level – Wave 25" loading="lazy"><div class="gallery-caption">Forest – Wave 25</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1060.png','Forest – Skill Tree Alert')"><img src="IMG_1060.png" alt="Forest – Skill Tree Alert" loading="lazy"><div class="gallery-caption">Skill Tree Alert</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1061.png','Tesla Tower – Dark Woods')"><img src="IMG_1061.png" alt="Tesla Tower – Dark Woods" loading="lazy"><div class="gallery-caption">Tesla Tower</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1068.png','Perk Unlock – Level Up')"><img src="IMG_1068.png" alt="Perk Unlock" loading="lazy"><div class="gallery-caption">Perk Unlock</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1069.png','Gameplay – Forest Day')"><img src="IMG_1069.png" alt="Gameplay – Forest Day" loading="lazy"><div class="gallery-caption">Forest – Day</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1070.png','Gameplay Screenshot')"><img src="IMG_1070.png" alt="Gameplay Screenshot" loading="lazy"><div class="gallery-caption">Gameplay</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1071.png','Gameplay Screenshot')"><img src="IMG_1071.png" alt="Gameplay Screenshot" loading="lazy"><div class="gallery-caption">Gameplay</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1072.png','Dark Level')"><img src="IMG_1072.png" alt="Dark Level" loading="lazy"><div class="gallery-caption">Dark Level</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1073.png','Dark Level')"><img src="IMG_1073.png" alt="Dark Level" loading="lazy"><div class="gallery-caption">Dark Level</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1074.png','Gameplay Screenshot')"><img src="IMG_1074.png" alt="Gameplay Screenshot" loading="lazy"><div class="gallery-caption">Gameplay</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1075.png','In-Game Menu')"><img src="IMG_1075.png" alt="In-Game Menu" loading="lazy"><div class="gallery-caption">Menu Screen</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1076.png','Gameplay Screenshot')"><img src="IMG_1076.png" alt="Gameplay Screenshot" loading="lazy"><div class="gallery-caption">Gameplay</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1082.png','Gameplay Screenshot')"><img src="IMG_1082.png" alt="Gameplay Screenshot" loading="lazy"><div class="gallery-caption">Gameplay</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1084.png','Gameplay Screenshot')"><img src="IMG_1084.png" alt="Gameplay Screenshot" loading="lazy"><div class="gallery-caption">Gameplay</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1085.png','Gameplay Screenshot')"><img src="IMG_1085.png" alt="Gameplay Screenshot" loading="lazy"><div class="gallery-caption">Gameplay</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1086.png','Gameplay Screenshot')"><img src="IMG_1086.png" alt="Gameplay Screenshot" loading="lazy"><div class="gallery-caption">Gameplay</div></div>
+                <div class="gallery-item" onclick="openLightbox('IMG_1091.png','Menu / Title Screen')"><img src="IMG_1091.png" alt="Menu / Title Screen" loading="lazy"><div class="gallery-caption">Title Screen</div></div>
+            </div>
+            <div style="text-align:center;padding:14px 0 4px;color:var(--text2);font-size:11px;letter-spacing:3px;border-top:1px solid var(--border);">&#8592; CLICK ANY IMAGE TO ENLARGE &nbsp;&middot;&nbsp; &#128444;&#65039; 17 SCREENSHOTS</div>
+            </div>
+        </div>
 </section>
 
 <!-- PAGE: VIDEOS -->
@@ -519,9 +565,12 @@
     <div class="panel">
         <div class="panel-header"><h2>&#9654;&#65039; Video Gallery</h2></div>
         <div class="panel-body">
-            <div class="media-placeholder" role="img" aria-label="Teaser trailer placeholder"><span class="picon">&#127909;</span><strong>[ Official Teaser Trailer ]</strong><span style="font-size:11px;">YouTube / Vimeo embed &mdash; placeholder</span></div>
-            <div class="media-placeholder" role="img" aria-label="Gameplay demo placeholder"><span class="picon">&#127918;</span><strong>[ Gameplay Demo &mdash; Quest 1 ]</strong><span style="font-size:11px;">Gameplay walkthrough &mdash; placeholder</span></div>
-            <div class="media-placeholder" role="img" aria-label="Tutorial placeholder"><span class="picon">&#9978;&#65039;</span><strong>[ Camp Building Tutorial ]</strong><span style="font-size:11px;">Tutorial video &mdash; placeholder</span></div>
+            <video controls style="width:100%;border:3px solid var(--border);box-shadow:4px 4px 0 var(--ink);display:block;margin-bottom:14px;background:#000;" preload="metadata">
+                <source src="_users_1950b102-4327-4638-ab62-43d98ac4e6de_generated_5ba0ce25-2cc0-45d0-8926-2f482cffaa5b_generated_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="media-placeholder" role="img" aria-label="Gameplay demo placeholder"><span class="picon">&#127918;</span><strong>[ Gameplay Demo &mdash; Quest 1 ]</strong><span style="font-size:11px;">Gameplay walkthrough &mdash; coming soon</span></div>
+            <div class="media-placeholder" role="img" aria-label="Tutorial placeholder"><span class="picon">&#9978;&#65039;</span><strong>[ Camp Building Tutorial ]</strong><span style="font-size:11px;">Tutorial video &mdash; coming soon</span></div>
             <div style="text-align:center;padding:18px 0;color:var(--text2);font-size:11px;letter-spacing:3px;border-top:1px solid var(--border);">&#8595; SCROLL FOR MORE VIDEOS &nbsp;&middot;&nbsp; [ TURN PAGE ]</div>
             <div class="thought-bubble">More gameplay videos and dev logs coming soon. Subscribe to stay updated!<div class="dots"><span></span><span></span><span></span></div></div>
         </div>
@@ -875,6 +924,12 @@
     </button>
 </div>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox(event)" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close">&#10006;</button>
+    <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
 var isLoggedIn=false,mockUser={username:'Player',email:'player@example.com'};
 var inboxMessages=[
@@ -975,7 +1030,10 @@ function sendChat(){
     w.scrollTop=w.scrollHeight;
 }
 function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-document.getElementById('chat-field').addEventListener('keydown',function(e){if(e.key==='Enter')sendChat();});
+function openLightbox(src,alt){var lb=document.getElementById('lightbox'),img=document.getElementById('lightbox-img');img.src=src;img.alt=alt||'';lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLightbox(e){if(e&&e.type==='click'&&e.target!==document.getElementById('lightbox')&&e.target!==document.getElementById('lightbox-close'))return;document.getElementById('lightbox').classList.remove('open');document.getElementById('lightbox-img').src='';document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
+document.querySelectorAll('.gallery-item,.feat-pair-item').forEach(function(el){el.setAttribute('tabindex','0');el.setAttribute('role','button');el.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();el.click();}});});
 </script>
 </body>
 </html>
