@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterdrop - Official Game Website</title>
+    <style>
+        /* CSS for Camp Menu Theme */
+        body {
+            background-color: #1a1412;
+            color: #e6d5b8;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            background-image: radial-gradient(circle at center, #2c211b 0%, #0d0a08 100%);
+        }
+        
+        /* Navigation Sidebar */
+        #sidebar {
+            width: 250px;
+            background-color: rgba(30, 20, 15, 0.9);
+            border-right: 2px solid #5a4031;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.8);
+        }
+        #sidebar h1 {
+            font-size: 24px;
+            text-align: center;
+            border-bottom: 1px solid #5a4031;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #ffb74d;
+        }
+        .nav-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: #e6d5b8;
+            padding: 15px;
+            margin: 5px 0;
+            font-size: 18px;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .nav-btn:hover, .nav-btn.active {
+            background-color: #3b281d;
+            border: 1px solid #8c6b4f;
+            box-shadow: inset 0 0 10px #000;
+        }
+        
+        /* Main Content Box */
+        #content {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+        .section {
+            display: none;
+            background-color: rgba(20, 15, 10, 0.7);
+            border: 1px solid #5a4031;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .section.active {
+            display: block;
+        }
+        .highlight-video {
+            width: 100%;
+            height: 400px;
+            background-color: #000;
+            border: 2px solid #5a4031;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+        .btn-donate {
+            display: inline-block;
+            background-color: #8c6b4f;
+            color: #1a1412;
+            padding: 12px 24px;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 3px;
+            border: 1px solid #ffd54f;
+            transition: 0.2s;
+        }
+        .btn-donate:hover {
+            background-color: #ffb74d;
+            box-shadow: 0 0 10px #ffb74d;
+        }
+        .update-entry {
+            border-bottom: 1px dashed #5a4031;
+            padding: 15px 0;
+        }
+        .update-entry h3 {
+            margin: 0 0 10px 0;
+            color: #ffb74d;
+        }
+        
+        /* Chatbot Widget */
+        #chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background-color: #2c211b;
+            border: 2px solid #5a4031;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 15px rgba(0,0,0,0.8);
+        }
+        #chat-header {
+            background-color: #1a1412;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #5a4031;
+            font-weight: bold;
+            color: #ffb74d;
+        }
+        #chat-window {
+            height: 200px;
+            padding: 10px;
+            overflow-y: auto;
+            font-size: 14px;
+        }
+        #chat-input {
+            display: flex;
+            border-top: 1px solid #5a4031;
+        }
+        #chat-input input {
+            flex-grow: 1;
+            background: #1a1412;
+            color: #e6d5b8;
+            border: none;
+            padding: 10px;
+            font-family: inherit;
+        }
+        #chat-input button {
+            background: #5a4031;
+            color: #e6d5b8;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        #chat-input button:hover {
+            background: #8c6b4f;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar / Camp Menu Navigation -->
+    <div id="sidebar">
+        <h1>🏕️ Camp Menu</h1>
+        <button class="nav-btn active" onclick="showSection('home')">📜 Journal (Home)</button>
+        <button class="nav-btn" onclick="showSection('demo')">⛺ Try Demo</button>
+        <button class="nav-btn" onclick="showSection('updates')">🛠️ Updates</button>
+        <button class="nav-btn" onclick="showSection('support')">💰 Support / Unlock</button>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        
+        <!-- HOME SECTION -->
+        <div id="home" class="section active">
+            <h2>Welcome to Waterdrop</h2>
+            <p>Explore the teaser trailer and highlights below.</p>
+            
+            <div class="highlight-video">
+                [ Teaser Video Placeholder - Paste YouTube/Vimeo Link Here ]
+            </div>
+            
+            <p>A survival adventure awaits. Check out the demo to play the first 7 quests and unlock the early access version to continue your journey.</p>
+        </div>
+
+        <!-- DEMO SECTION -->
+        <div id="demo" class="section">
+            <h2>Alpha Early Access Demo</h2>
+            <p>Play the trial version up to Quest 7 for free.</p>
+            
+            <div class="highlight-video" style="height: 350px;">
+                [ WebGL Game Canvas Embed Here ]
+            </div>
+            
+            <p>Enjoyed the demo? Unlock the full early access to keep playing and get continuous updates!</p>
+            <a href="#" onclick="showSection('support')" class="btn-donate">Unlock Full Early Access</a>
+        </div>
+
+        <!-- UPDATES SECTION -->
+        <div id="updates" class="section">
+            <h2>Game Updates (Changelog)</h2>
+            <p>I update the game whenever I have a good day. Here is the progress from v0.001 to v0.390+:</p>
+            
+            <div class="update-entry">
+                <h3>Version 0.390 (Latest)</h3>
+                <p>
+                    - Added official website frontend.<br>
+                    - Included placeholders for Swish, Crypto, and Card payments.<br>
+                    - Added built-in camp guide chat bot.
+                </p>
+            </div>
+            <div class="update-entry">
+                <h3>Version 0.200</h3>
+                <p>
+                    - Reached Quest 7 in the trial demo.<br>
+                    - Improved the overall inventory and UI system.
+                </p>
+            </div>
+            <div class="update-entry">
+                <h3>Version 0.001</h3>
+                <p>- Initial Alpha build launched.</p>
+            </div>
+        </div>
+
+        <!-- SUPPORT / PAYMENTS SECTION -->
+        <div id="support" class="section">
+            <h2>Support & Unlock Early Access</h2>
+            <p>Choose your preferred secure payment method below to unlock the full Early Access. All transactions are securely processed.</p>
+            
+            <div style="margin-top: 20px;">
+                <a href="#" class="btn-donate">💳 Credit Card / Bank</a>
+                <a href="#" class="btn-donate">🅿️ PayPal</a>
+                <a href="#" class="btn-donate">📱 Swish</a>
+                <a href="#" class="btn-donate">🪙 Crypto</a>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 14px; color: #aaa;">
+                * The in-game bot can also assist with purchases and questions. Ask it anything below!
+            </p>
+        </div>
+
+    </div>
+
+    <!-- CHATBOT WIDGET -->
+    <div id="chatbot">
+        <div id="chat-header">🤖 Camp Guide Bot</div>
+        <div id="chat-window" id="chat-messages">
+            <p><strong>Guide:</strong> Hello traveler! Got any questions about the game or need help with a payment?</p>
+        </div>
+        <div id="chat-input">
+            <input type="text" placeholder="Ask a question..." id="chat-field">
+            <button onclick="alert('Bot backend needs to be connected to an AI API!')">Send</button>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle navigation clicks -->
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Highlight the active menu button
+            const buttons = document.querySelectorAll('.nav-btn');
+            for(let btn of buttons) {
+                if(btn.getAttribute('onclick').includes(sectionId)) {
+                    btn.classList.add('active');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
