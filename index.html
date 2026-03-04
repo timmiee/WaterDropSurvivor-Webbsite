@@ -233,6 +233,85 @@
         .link:hover{color:var(--yellow);border-color:var(--yellow);}
         hr.comic-divider{border:none;border-top:3px solid var(--blue);margin:22px 0;}
 
+        /* CAMP DEMO */
+        .camp-wrapper{display:grid;grid-template-columns:1fr 280px;gap:20px;min-height:600px;}
+        .camp-scene{position:relative;background:radial-gradient(ellipse at center,#0a1a0a 0%,#050d05 40%,#020602 100%);border:3px solid var(--blue);box-shadow:4px 4px 0 var(--ink),inset 0 0 60px rgba(0,0,0,.8);height:600px;overflow:hidden;user-select:none;}
+        .camp-fog{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(180,200,220,0.06) 60%,rgba(180,200,220,0.15) 85%,rgba(140,160,180,0.25) 100%);pointer-events:none;z-index:10;animation:fogPulse 8s ease-in-out infinite alternate;}
+        @keyframes fogPulse{0%{opacity:.7;}100%{opacity:1;}}
+        .camp-spawn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(240,192,48,0.08) 0%,rgba(240,192,48,0.03) 50%,transparent 100%);border:1px dashed rgba(240,192,48,0.15);z-index:2;}
+        .camp-spawn-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:9px;color:rgba(240,192,48,0.4);letter-spacing:2px;text-transform:uppercase;white-space:nowrap;}
+        .camp-character{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:28px;z-index:5;filter:drop-shadow(0 0 8px rgba(91,184,255,0.4));animation:charBob 3s ease-in-out infinite;}
+        @keyframes charBob{0%,100%{transform:translate(-50%,-50%) translateY(0);}50%{transform:translate(-50%,-50%) translateY(-4px);}}
+        .building-spot{position:absolute;width:100px;height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;z-index:5;transition:transform .2s;}
+        .building-spot:hover{transform:scale(1.08);}
+        .building-spot.locked{opacity:.3;cursor:not-allowed;filter:grayscale(1);}
+        .building-spot.locked:hover{transform:none;}
+        .building-spot .spot-icon{font-size:36px;transition:filter .3s,transform .5s;}
+        .building-spot .spot-label{font-size:9px;font-weight:900;color:var(--text2);letter-spacing:1px;text-transform:uppercase;margin-top:4px;text-align:center;text-shadow:0 0 4px rgba(0,0,0,.9);}
+        .building-spot.available .spot-icon{filter:drop-shadow(0 0 6px rgba(91,184,255,0.5));animation:spotPulse 2s ease-in-out infinite;}
+        @keyframes spotPulse{0%,100%{filter:drop-shadow(0 0 6px rgba(91,184,255,0.3));}50%{filter:drop-shadow(0 0 14px rgba(91,184,255,0.7));}}
+        .building-spot.built .spot-icon{filter:drop-shadow(0 0 10px rgba(240,192,48,0.5));}
+        @keyframes buildUp{0%{transform:scale(0) translateY(20px);opacity:0;}60%{transform:scale(1.15) translateY(-5px);opacity:1;}100%{transform:scale(1) translateY(0);opacity:1;}}
+        .building-spot.building .spot-icon{animation:buildUp .8s ease forwards;}
+        .building-spot.building .build-particles{display:block;}
+        .build-particles{display:none;position:absolute;inset:0;pointer-events:none;}
+        .build-particles span{position:absolute;width:4px;height:4px;background:var(--yellow);border-radius:50%;animation:particleFly .8s ease forwards;}
+        @keyframes particleFly{0%{opacity:1;transform:translate(0,0) scale(1);}100%{opacity:0;transform:translate(var(--px),var(--py)) scale(0);}}
+        .building-light{position:absolute;bottom:0;left:50%;transform:translateX(-50%);pointer-events:none;z-index:4;}
+        .fire-glow{width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,rgba(255,150,30,0.35) 0%,rgba(255,100,0,0.15) 40%,transparent 70%);animation:fireFlicker 1.5s ease-in-out infinite alternate;position:absolute;bottom:5px;left:50%;transform:translateX(-50%);}
+        @keyframes fireFlicker{0%{opacity:.7;transform:translateX(-50%) scale(1);}25%{opacity:.9;transform:translateX(-50%) scale(1.05);}50%{opacity:.6;transform:translateX(-50%) scale(.95);}75%{opacity:1;transform:translateX(-50%) scale(1.08);}100%{opacity:.75;transform:translateX(-50%) scale(1);}}
+        .fire-emoji{font-size:16px;position:absolute;bottom:8px;left:50%;transform:translateX(-50%);animation:fireEmoji 1s ease-in-out infinite alternate;z-index:6;}
+        @keyframes fireEmoji{0%{transform:translateX(-50%) scale(1) rotate(-3deg);opacity:.8;}100%{transform:translateX(-50%) scale(1.1) rotate(3deg);opacity:1;}}
+        .torch-light{width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(255,180,60,0.2) 0%,rgba(255,120,20,0.08) 50%,transparent 75%);animation:torchFlicker 2s ease-in-out infinite alternate;position:absolute;bottom:0;left:50%;transform:translateX(-50%);}
+        @keyframes torchFlicker{0%{opacity:.6;transform:translateX(-50%) scale(.9);}100%{opacity:1;transform:translateX(-50%) scale(1.1);}}
+        .beacon-fire{width:50px;height:50px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,50,0.4) 0%,rgba(255,100,0,0.15) 50%,transparent 75%);animation:beaconPulse 2.5s ease-in-out infinite alternate;position:absolute;top:-15px;left:50%;transform:translateX(-50%);}
+        @keyframes beaconPulse{0%{opacity:.6;transform:translateX(-50%) scale(.85);}50%{opacity:1;transform:translateX(-50%) scale(1.15);}100%{opacity:.7;transform:translateX(-50%) scale(.95);}}
+        .fireflies{position:absolute;inset:-20px;pointer-events:none;z-index:6;}
+        .firefly{position:absolute;width:4px;height:4px;border-radius:50%;background:rgba(180,255,100,0.9);box-shadow:0 0 6px rgba(180,255,100,0.6);animation:fireflyFloat var(--dur) ease-in-out infinite alternate;}
+        @keyframes fireflyFloat{0%{transform:translate(0,0);opacity:.3;}25%{opacity:.9;}50%{transform:translate(var(--fx),var(--fy));opacity:.5;}75%{opacity:1;}100%{transform:translate(var(--fx2),var(--fy2));opacity:.4;}}
+        .build-dialog-overlay{display:none;position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:20;align-items:center;justify-content:center;}
+        .build-dialog-overlay.open{display:flex;}
+        .build-dialog-overlay.closing{animation:dialogFadeOut .3s ease forwards;}
+        @keyframes dialogFadeOut{0%{opacity:1;}100%{opacity:0;}}
+        .build-dialog{background:var(--panel2);border:3px solid var(--yellow);box-shadow:0 0 40px rgba(240,192,48,.2),4px 4px 0 var(--ink);padding:20px;max-width:320px;width:90%;text-align:center;position:relative;}
+        .build-dialog h3{font-size:15px;font-weight:900;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+        .build-dialog .build-icon{font-size:40px;margin-bottom:8px;}
+        .build-dialog .build-desc{font-size:11px;color:var(--text2);margin-bottom:14px;line-height:1.6;}
+        .build-dialog .build-resources{margin-bottom:14px;}
+        .build-dialog .build-resources div{font-size:11px;color:var(--text);padding:3px 0;border-bottom:1px solid var(--border2);}
+        .build-dialog .build-resources div:last-child{border-bottom:none;}
+        .build-dialog .build-resources .res-check{color:#2ecc71;}
+        .build-dialog-close{position:absolute;top:6px;right:10px;background:none;border:none;color:var(--text2);font-size:18px;cursor:pointer;font-family:inherit;}
+        .build-dialog-close:hover{color:var(--yellow);}
+        .craft-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0;}
+        .craft-item{background:var(--panel);border:2px solid var(--border);padding:10px 6px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;}
+        .craft-item:hover{border-color:var(--blue-l);background:var(--panel2);}
+        .craft-item.crafted{border-color:#2ecc71;background:rgba(46,204,113,.08);cursor:default;}
+        .craft-item .craft-icon{font-size:24px;display:block;margin-bottom:4px;}
+        .craft-item .craft-name{font-size:9px;font-weight:900;color:var(--text);letter-spacing:1px;text-transform:uppercase;}
+        .craft-item .craft-status{font-size:9px;color:var(--text2);margin-top:3px;}
+        .craft-item.crafted .craft-status{color:#2ecc71;}
+        .quest-panel{background:var(--panel2);border:3px solid var(--blue);box-shadow:4px 4px 0 var(--ink);display:flex;flex-direction:column;height:600px;}
+        .quest-panel-header{background:var(--blue-d);border-bottom:3px solid var(--blue);padding:10px 14px;font-size:12px;font-weight:900;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;}
+        .quest-panel-body{flex:1;overflow-y:auto;padding:12px;}
+        .quest-step{padding:10px;margin-bottom:8px;border:2px solid var(--border2);background:var(--panel);font-size:11px;line-height:1.5;color:var(--text2);position:relative;padding-left:30px;transition:border-color .3s,background .3s;}
+        .quest-step::before{content:attr(data-num);position:absolute;left:8px;top:10px;font-size:10px;font-weight:900;color:var(--text2);width:16px;height:16px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;border-radius:2px;}
+        .quest-step.active{border-color:var(--yellow);background:rgba(240,192,48,.05);color:var(--text);}
+        .quest-step.active::before{border-color:var(--yellow);color:var(--yellow);}
+        .quest-step.complete{border-color:#2ecc71;color:var(--text2);}
+        .quest-step.complete::before{content:'\2713';border-color:#2ecc71;color:#2ecc71;background:rgba(46,204,113,.1);}
+        .quest-step .quest-title{font-weight:900;color:inherit;display:block;margin-bottom:2px;}
+        .quest-step.active .quest-title{color:var(--yellow);}
+        .quest-step.complete .quest-title{color:#2ecc71;}
+        .quest-hint{font-size:10px;color:var(--text2);font-style:italic;margin-top:12px;padding:8px;border-top:1px solid var(--border2);}
+        .quest-complete-banner{display:none;text-align:center;padding:18px;margin-top:12px;}
+        .quest-complete-banner.show{display:block;}
+        .quest-complete-banner h3{font-size:16px;color:var(--yellow);font-weight:900;letter-spacing:2px;margin-bottom:6px;}
+        .quest-complete-banner p{font-size:11px;color:var(--text2);}
+        .camp-reset-btn{margin-top:12px;width:100%;}
+        @keyframes gatherPulse{0%{box-shadow:0 0 0 0 rgba(76,175,80,0.4);}70%{box-shadow:0 0 0 12px rgba(76,175,80,0);}100%{box-shadow:0 0 0 0 rgba(76,175,80,0);}}
+        .building-spot.gathering .spot-icon{animation:gatherPulse 1s ease 3;}
+
         /* RESPONSIVE */
         @media(max-width:960px){
             :root{--tab-w:165px;}
@@ -241,6 +320,8 @@
             .home-cover{grid-template-columns:1fr;}
             .inbox-layout{grid-template-columns:1fr;}
             .inbox-list{border-right:none;border-bottom:3px solid var(--blue);max-height:180px;}
+            .camp-wrapper{grid-template-columns:1fr;}
+            .quest-panel{height:auto;max-height:350px;}
         }
         @media(max-width:700px){
             #left-tabs{transform:translateX(-100%);transition:transform .28s ease;z-index:500;top:54px;height:calc(100vh - 54px);}
@@ -252,6 +333,12 @@
             .pay-grid{grid-template-columns:1fr;}
             .comic-grid.triple{grid-template-columns:1fr;}
             .page-turn-hint{display:none;}
+            .camp-scene{height:450px;}
+            .building-spot{width:72px;height:72px;}
+            .building-spot .spot-icon{font-size:26px;}
+            .building-spot .spot-label{font-size:7px;}
+            .build-dialog{max-width:260px;padding:14px;}
+            .craft-grid{grid-template-columns:1fr 1fr;}
         }
     </style>
 </head>
@@ -271,6 +358,7 @@
         <div class="logo-dev">by TimmieTooth</div>
     </div>
     <button class="tab-btn active" data-tab="home" onclick="showTab('home')"><span class="tab-icon">&#127968;</span> Home</button>
+    <button class="tab-btn" data-tab="camp" onclick="showTab('camp')"><span class="tab-icon">&#9978;</span> Camp Demo</button>
     <button class="tab-btn" data-tab="gameinfo" onclick="showTab('gameinfo')"><span class="tab-icon">&#127918;</span> Game Info</button>
     <button class="tab-btn" data-tab="images" onclick="showTab('images')"><span class="tab-icon">&#128444;&#65039;</span> Images</button>
     <button class="tab-btn" data-tab="videos" onclick="showTab('videos')"><span class="tab-icon">&#127909;</span> Videos</button>
@@ -372,6 +460,104 @@
                     <li>Initial Alpha build launched</li>
                     <li>Core survival loop implemented</li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE: CAMP DEMO -->
+<section id="page-camp" class="page">
+    <div class="page-header">
+        <h1>&#9978; Camp Demo</h1>
+        <div class="page-sub">Interactive camp-building demo &middot; Complete quests &middot; Build your camp</div>
+    </div>
+    <div class="camp-wrapper">
+        <div class="camp-scene" id="camp-scene">
+            <!-- Fog overlay - edges only -->
+            <div class="camp-fog"></div>
+            <!-- Clean spawn area -->
+            <div class="camp-spawn">
+                <div class="camp-spawn-label">Base Camp</div>
+                <div class="camp-character">&#128167;</div>
+            </div>
+            <!-- Building spots -->
+            <div class="building-spot available" id="spot-forge" style="left:12%;top:15%;" tabindex="0" role="button" aria-label="Build Forge" onclick="openBuildDialog('forge')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBuildDialog('forge');}">
+                <div class="spot-icon">&#10067;</div>
+                <div class="spot-label">Forge</div>
+                <div class="build-particles"></div>
+                <div class="building-light" style="display:none;">
+                    <div class="fire-glow"></div>
+                    <div class="fire-emoji">&#128293;</div>
+                </div>
+            </div>
+            <div class="building-spot locked" id="spot-inventory" style="right:12%;top:45%;" tabindex="0" role="button" aria-label="Build Inventory Hut" onclick="openBuildDialog('inventory')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBuildDialog('inventory');}">
+                <div class="spot-icon">&#10067;</div>
+                <div class="spot-label">Inventory</div>
+                <div class="build-particles"></div>
+                <div class="building-light" style="display:none;">
+                    <div class="torch-light"></div>
+                    <div class="fire-emoji">&#128293;</div>
+                </div>
+            </div>
+            <div class="building-spot locked" id="spot-gathering" style="left:10%;bottom:12%;" tabindex="0" role="button" aria-label="Build Gathering Post" onclick="openBuildDialog('gathering')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBuildDialog('gathering');}">
+                <div class="spot-icon">&#10067;</div>
+                <div class="spot-label">Gathering</div>
+                <div class="build-particles"></div>
+                <div class="building-light" style="display:none;">
+                    <div class="fireflies" id="fireflies-gathering"></div>
+                </div>
+            </div>
+            <div class="building-spot locked" id="spot-watchtower" style="right:12%;top:8%;" tabindex="0" role="button" aria-label="Build Watchtower" onclick="openBuildDialog('watchtower')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBuildDialog('watchtower');}">
+                <div class="spot-icon">&#10067;</div>
+                <div class="spot-label">Watchtower</div>
+                <div class="build-particles"></div>
+                <div class="building-light" style="display:none;">
+                    <div class="beacon-fire"></div>
+                    <div class="fire-emoji" style="bottom:auto;top:-10px;">&#128293;</div>
+                </div>
+            </div>
+            <!-- Build dialog overlay -->
+            <div class="build-dialog-overlay" id="build-dialog-overlay">
+                <div class="build-dialog" id="build-dialog">
+                    <button class="build-dialog-close" onclick="closeBuildDialog()" aria-label="Close dialog">&times;</button>
+                    <div class="build-icon" id="dialog-icon"></div>
+                    <h3 id="dialog-title"></h3>
+                    <div class="build-desc" id="dialog-desc"></div>
+                    <div class="build-resources" id="dialog-resources"></div>
+                    <div id="dialog-actions"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Quest panel -->
+        <div class="quest-panel">
+            <div class="quest-panel-header">&#9876;&#65039; Quest Line</div>
+            <div class="quest-panel-body" id="quest-panel-body">
+                <div class="quest-step active" data-num="1" id="quest-1">
+                    <span class="quest-title">Build the Forge</span>
+                    Welcome to camp! Build the Forge to start crafting.
+                </div>
+                <div class="quest-step" data-num="2" id="quest-2">
+                    <span class="quest-title">Craft All Tools</span>
+                    Craft an Axe, Pickaxe, and Hammer at the Forge.
+                </div>
+                <div class="quest-step" data-num="3" id="quest-3">
+                    <span class="quest-title">Build the Inventory Hut</span>
+                    Build storage to keep your crafted tools safe.
+                </div>
+                <div class="quest-step" data-num="4" id="quest-4">
+                    <span class="quest-title">Gather Resources</span>
+                    Use your tools to gather wood, stone, and iron.
+                </div>
+                <div class="quest-step" data-num="5" id="quest-5">
+                    <span class="quest-title">Build the Watchtower</span>
+                    Defend your camp with a lookout tower!
+                </div>
+                <div class="quest-hint" id="quest-hint">&#128161; Click the glowing Forge spot to begin!</div>
+                <div class="quest-complete-banner" id="quest-complete-banner">
+                    <h3>&#127942; All Quests Complete!</h3>
+                    <p>Your camp is fully built. The fires burn bright and your watchtower stands tall. Well done, traveler!</p>
+                </div>
+                <button class="btn btn-outline camp-reset-btn" onclick="resetCamp()">&#128260; Reset Camp</button>
             </div>
         </div>
     </div>
@@ -946,6 +1132,7 @@ function showTab(t){
     document.getElementById('left-tabs').classList.remove('open');
     if(btn){var tn=btn.textContent.trim();var ti=document.getElementById('mobile-title');if(ti)ti.textContent=tn;document.title=tn+' \u2014 WaterDrop Survivor';}
     window.scrollTo(0,0);
+    if(t==='camp'){initCamp();}
     if(t==='gameinfo'){
         document.getElementById('gameinfo-stats-logged-in').style.display=isLoggedIn?'block':'none';
         document.getElementById('quest-login-gate').style.display=isLoggedIn?'none':'block';
@@ -1034,6 +1221,349 @@ function openLightbox(src,alt){var lb=document.getElementById('lightbox'),img=do
 function closeLightbox(e){if(e&&e.type==='click'&&e.target!==document.getElementById('lightbox')&&e.target!==document.getElementById('lightbox-close'))return;document.getElementById('lightbox').classList.remove('open');document.getElementById('lightbox-img').src='';document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
 document.querySelectorAll('.gallery-item,.feat-pair-item').forEach(function(el){el.setAttribute('tabindex','0');el.setAttribute('role','button');el.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();el.click();}});});
+
+/* ===== CAMP DEMO ===== */
+var campState = {
+    currentQuest: 1,
+    buildings: { forge: false, inventory: false, gathering: false, watchtower: false },
+    tools: { axe: false, pickaxe: false, hammer: false },
+    gathered: false,
+    initialized: false
+};
+
+var campBuildings = {
+    forge: {
+        builtIcon: '\uD83D\uDD25', label: 'Forge',
+        desc: 'A blazing forge for crafting tools and weapons. The heart of any camp.',
+        resources: [
+            { name: '20 Stone', icon: '\uD83E\uDEA8' },
+            { name: '10 Iron Ore', icon: '\u2699\uFE0F' },
+            { name: '5 Wood', icon: '\uD83E\uDEB5' }
+        ],
+        questRequired: 1
+    },
+    inventory: {
+        builtIcon: '\uD83D\uDCE6', label: 'Inventory Hut',
+        desc: 'A sturdy hut to store your gear and gathered materials safely.',
+        resources: [
+            { name: '15 Wood', icon: '\uD83E\uDEB5' },
+            { name: '10 Stone', icon: '\uD83E\uDEA8' },
+            { name: '5 Rope', icon: '\uD83E\uDDF6' }
+        ],
+        questRequired: 3
+    },
+    gathering: {
+        builtIcon: '\uD83C\uDF3F', label: 'Gathering Post',
+        desc: 'A post for organizing resource gathering expeditions.',
+        resources: [
+            { name: '10 Wood', icon: '\uD83E\uDEB5' },
+            { name: '5 Fiber', icon: '\uD83E\uDDF6' },
+            { name: '3 Stone', icon: '\uD83E\uDEA8' }
+        ],
+        questRequired: 4
+    },
+    watchtower: {
+        builtIcon: '\uD83D\uDDFC', label: 'Watchtower',
+        desc: 'A tall lookout tower with a beacon fire. Defends against threats.',
+        resources: [
+            { name: '25 Wood', icon: '\uD83E\uDEB5' },
+            { name: '15 Stone', icon: '\uD83E\uDEA8' },
+            { name: '10 Iron', icon: '\u2699\uFE0F' },
+            { name: '5 Rope', icon: '\uD83E\uDDF6' }
+        ],
+        questRequired: 5
+    }
+};
+
+var questHints = {
+    1: '\uD83D\uDCA1 Click the glowing Forge spot to begin!',
+    2: '\uD83D\uDCA1 Click the Forge to open the crafting menu.',
+    3: '\uD83D\uDCA1 Click the Inventory Hut spot (right side) to build it.',
+    4: '\uD83D\uDCA1 Click the Gathering Post (bottom-left) to set it up.',
+    5: '\uD83D\uDCA1 Click the Watchtower spot (top-right) to build it!'
+};
+
+function initCamp() {
+    campState.initialized = true;
+    updateCampUI();
+}
+
+function updateCampUI() {
+    var names = ['forge','inventory','gathering','watchtower'];
+    for (var i = 0; i < names.length; i++) {
+        var name = names[i];
+        var spot = document.getElementById('spot-' + name);
+        if (!spot) continue;
+        var bld = campBuildings[name];
+        var icon = spot.querySelector('.spot-icon');
+        var light = spot.querySelector('.building-light');
+
+        spot.classList.remove('available', 'locked', 'built', 'building');
+
+        if (campState.buildings[name]) {
+            spot.classList.add('built');
+            icon.innerHTML = bld.builtIcon;
+            if (light) light.style.display = '';
+        } else if (bld.questRequired === campState.currentQuest) {
+            spot.classList.add('available');
+            icon.innerHTML = '\u2753';
+            if (light) light.style.display = 'none';
+        } else {
+            spot.classList.add('locked');
+            icon.innerHTML = '\u2753';
+            if (light) light.style.display = 'none';
+        }
+    }
+    // Special: quest 2 means forge is built, show it as built and clickable for crafting
+    if (campState.currentQuest === 2 && campState.buildings.forge) {
+        var forgeSpot = document.getElementById('spot-forge');
+        forgeSpot.classList.remove('locked');
+        forgeSpot.classList.add('built');
+        forgeSpot.style.cursor = 'pointer';
+    }
+
+    // Update quest steps
+    for (var q = 1; q <= 5; q++) {
+        var step = document.getElementById('quest-' + q);
+        if (!step) continue;
+        step.classList.remove('active', 'complete');
+        if (q < campState.currentQuest) step.classList.add('complete');
+        else if (q === campState.currentQuest) step.classList.add('active');
+    }
+
+    // Update hint
+    var hint = document.getElementById('quest-hint');
+    if (hint) {
+        if (campState.currentQuest > 5) {
+            hint.style.display = 'none';
+        } else {
+            hint.style.display = '';
+            hint.innerHTML = questHints[campState.currentQuest] || '';
+        }
+    }
+
+    // Quest complete banner
+    var banner = document.getElementById('quest-complete-banner');
+    if (banner) banner.classList.toggle('show', campState.currentQuest > 5);
+
+    // Generate fireflies for gathering post if built
+    if (campState.buildings.gathering) {
+        generateFireflies();
+    }
+}
+
+function generateFireflies() {
+    var container = document.getElementById('fireflies-gathering');
+    if (!container) return;
+    container.innerHTML = '';
+    for (var i = 0; i < 8; i++) {
+        var fly = document.createElement('span');
+        fly.className = 'firefly';
+        fly.style.left = (15 + Math.random() * 70) + '%';
+        fly.style.top = (15 + Math.random() * 70) + '%';
+        fly.style.setProperty('--dur', (2 + Math.random() * 3) + 's');
+        fly.style.setProperty('--fx', (Math.random() * 30 - 15) + 'px');
+        fly.style.setProperty('--fy', (Math.random() * 30 - 15) + 'px');
+        fly.style.setProperty('--fx2', (Math.random() * 20 - 10) + 'px');
+        fly.style.setProperty('--fy2', (Math.random() * 20 - 10) + 'px');
+        fly.style.animationDelay = (Math.random() * 2) + 's';
+        container.appendChild(fly);
+    }
+}
+
+function openBuildDialog(building) {
+    var bld = campBuildings[building];
+    if (!bld) return;
+
+    // Quest 2: forge is built, open craft dialog instead
+    if (building === 'forge' && campState.buildings.forge && campState.currentQuest === 2) {
+        openCraftDialog();
+        return;
+    }
+
+    // Don't open if locked
+    var spot = document.getElementById('spot-' + building);
+    if (spot && spot.classList.contains('locked')) return;
+
+    // Don't open if already built (unless forge during quest 2)
+    if (campState.buildings[building]) return;
+
+    // Check quest requirement
+    if (bld.questRequired !== campState.currentQuest) return;
+
+    var overlay = document.getElementById('build-dialog-overlay');
+    var iconEl = document.getElementById('dialog-icon');
+    var titleEl = document.getElementById('dialog-title');
+    var descEl = document.getElementById('dialog-desc');
+    var resEl = document.getElementById('dialog-resources');
+    var actEl = document.getElementById('dialog-actions');
+
+    iconEl.innerHTML = bld.builtIcon;
+    titleEl.textContent = bld.label;
+    descEl.textContent = bld.desc;
+
+    var resHTML = '';
+    for (var r = 0; r < bld.resources.length; r++) {
+        resHTML += '<div><span class="res-check">\u2713</span> ' + bld.resources[r].icon + ' ' + bld.resources[r].name + ' <span style="color:#2ecc71;font-size:9px;">(provided)</span></div>';
+    }
+    resEl.innerHTML = resHTML;
+
+    actEl.innerHTML = '<button class="btn btn-primary" onclick="buildBuilding(\'' + building + '\')">\uD83D\uDD28 Build ' + bld.label + '</button>';
+
+    overlay.classList.remove('closing');
+    overlay.classList.add('open');
+}
+
+function openCraftDialog() {
+    var overlay = document.getElementById('build-dialog-overlay');
+    var iconEl = document.getElementById('dialog-icon');
+    var titleEl = document.getElementById('dialog-title');
+    var descEl = document.getElementById('dialog-desc');
+    var resEl = document.getElementById('dialog-resources');
+    var actEl = document.getElementById('dialog-actions');
+
+    iconEl.innerHTML = '\uD83D\uDD25';
+    titleEl.textContent = 'Craft Tools';
+    descEl.textContent = 'Use the Forge to craft your essential tools. All materials provided!';
+    resEl.innerHTML = '';
+
+    var craftHTML = '<div class="craft-grid">';
+    var tools = [
+        { id: 'axe', icon: '\uD83E\uDE93', name: 'Axe', res: '5 Wood + 3 Iron' },
+        { id: 'pickaxe', icon: '\u26CF\uFE0F', name: 'Pickaxe', res: '3 Wood + 5 Iron' },
+        { id: 'hammer', icon: '\uD83D\uDD28', name: 'Hammer', res: '4 Wood + 4 Iron' }
+    ];
+    for (var t = 0; t < tools.length; t++) {
+        var tool = tools[t];
+        var crafted = campState.tools[tool.id];
+        var ariaText = crafted ? tool.name + ' - Already Crafted' : 'Craft ' + tool.name;
+        craftHTML += '<div class="craft-item' + (crafted ? ' crafted' : '') + '" tabindex="0" role="button" aria-label="' + ariaText + '" onclick="craftTool(\'' + tool.id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();craftTool(\'' + tool.id + '\');}">';
+        craftHTML += '<span class="craft-icon">' + tool.icon + '</span>';
+        craftHTML += '<span class="craft-name">' + tool.name + '</span>';
+        craftHTML += '<span class="craft-status">' + (crafted ? '\u2713 Crafted' : tool.res) + '</span>';
+        craftHTML += '</div>';
+    }
+    craftHTML += '</div>';
+    actEl.innerHTML = craftHTML;
+
+    overlay.classList.remove('closing');
+    overlay.classList.add('open');
+}
+
+function closeBuildDialog(callback) {
+    var overlay = document.getElementById('build-dialog-overlay');
+    if (!overlay.classList.contains('open')) {
+        if (callback) callback();
+        return;
+    }
+    overlay.classList.add('closing');
+    setTimeout(function() {
+        overlay.classList.remove('open', 'closing');
+        if (callback) callback();
+    }, 300);
+}
+
+function spawnBuildParticles(spot) {
+    var container = spot.querySelector('.build-particles');
+    if (!container) return;
+    container.innerHTML = '';
+    for (var i = 0; i < 10; i++) {
+        var p = document.createElement('span');
+        var angle = Math.random() * Math.PI * 2;
+        var dist = 30 + Math.random() * 40;
+        p.style.left = '50%';
+        p.style.top = '50%';
+        p.style.setProperty('--px', (Math.cos(angle) * dist) + 'px');
+        p.style.setProperty('--py', (Math.sin(angle) * dist) + 'px');
+        p.style.animationDelay = (Math.random() * 0.3) + 's';
+        container.appendChild(p);
+    }
+}
+
+function buildBuilding(name) {
+    if (campState.buildings[name]) return;
+    var bld = campBuildings[name];
+    if (!bld || bld.questRequired !== campState.currentQuest) return;
+
+    // Dialog disappears FIRST, then building animates
+    closeBuildDialog(function() {
+        var spot = document.getElementById('spot-' + name);
+        if (!spot) return;
+        var icon = spot.querySelector('.spot-icon');
+        icon.innerHTML = bld.builtIcon;
+
+        // Trigger build animation
+        spot.classList.remove('available', 'locked');
+        spot.classList.add('building');
+        spawnBuildParticles(spot);
+
+        setTimeout(function() {
+            spot.classList.remove('building');
+            campState.buildings[name] = true;
+            completeQuest();
+        }, 900);
+    });
+}
+
+function craftTool(toolId) {
+    if (campState.tools[toolId]) return;
+    if (campState.currentQuest !== 2) return;
+
+    campState.tools[toolId] = true;
+
+    // Check if all tools crafted
+    var allCrafted = Object.keys(campState.tools).every(function(k) { return campState.tools[k]; });
+
+    // Refresh craft dialog
+    openCraftDialog();
+
+    if (allCrafted) {
+        setTimeout(function() {
+            closeBuildDialog(function() {
+                completeQuest();
+            });
+        }, 600);
+    }
+}
+
+function completeQuest() {
+    campState.currentQuest++;
+
+    // Just finished quest 3 (Inventory), now quest 4 (Gather) is active - make gathering post available
+    if (campState.currentQuest === 4) {
+        updateCampUI();
+        return;
+    }
+
+    // Just finished quest 4 (built Gathering Post), now play auto-gather animation before quest 5
+    if (campState.currentQuest === 5 && campState.buildings.gathering) {
+        var gatherSpot = document.getElementById('spot-gathering');
+        if (gatherSpot) {
+            gatherSpot.classList.add('gathering');
+            setTimeout(function() {
+                gatherSpot.classList.remove('gathering');
+                campState.gathered = true;
+                updateCampUI();
+            }, 3000);
+            updateCampUI();
+            return;
+        }
+    }
+
+    updateCampUI();
+}
+
+function resetCamp() {
+    campState.currentQuest = 1;
+    campState.buildings = { forge: false, inventory: false, gathering: false, watchtower: false };
+    campState.tools = { axe: false, pickaxe: false, hammer: false };
+    campState.gathered = false;
+    // Clear fireflies
+    var ff = document.getElementById('fireflies-gathering');
+    if (ff) ff.innerHTML = '';
+    updateCampUI();
+}
+
 </script>
 </body>
 </html>
