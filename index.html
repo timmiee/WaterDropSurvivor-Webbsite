@@ -358,7 +358,7 @@
         <div class="logo-dev">by TimmieTooth</div>
     </div>
     <button class="tab-btn active" data-tab="home" onclick="showTab('home')"><span class="tab-icon">&#127968;</span> Home</button>
-    <button class="tab-btn" data-tab="camp" onclick="showTab('camp')" aria-label="Camp Demo - Interactive camp building experience"><span class="tab-icon">&#9978;</span> Camp Demo</button>
+    <button class="tab-btn" data-tab="camp" onclick="showTab('camp')"><span class="tab-icon">&#9978;</span> Camp Demo</button>
     <button class="tab-btn" data-tab="gameinfo" onclick="showTab('gameinfo')"><span class="tab-icon">&#127918;</span> Game Info</button>
     <button class="tab-btn" data-tab="images" onclick="showTab('images')"><span class="tab-icon">&#128444;&#65039;</span> Images</button>
     <button class="tab-btn" data-tab="videos" onclick="showTab('videos')"><span class="tab-icon">&#127909;</span> Videos</button>
@@ -1233,7 +1233,7 @@ var campState = {
 
 var campBuildings = {
     forge: {
-        icon: '\uD83D\uDD25', builtIcon: '\uD83D\uDD25', label: 'Forge',
+        builtIcon: '\uD83D\uDD25', label: 'Forge',
         desc: 'A blazing forge for crafting tools and weapons. The heart of any camp.',
         resources: [
             { name: '20 Stone', icon: '\uD83E\uDEA8' },
@@ -1243,7 +1243,7 @@ var campBuildings = {
         questRequired: 1
     },
     inventory: {
-        icon: '\uD83D\uDCE6', builtIcon: '\uD83D\uDCE6', label: 'Inventory Hut',
+        builtIcon: '\uD83D\uDCE6', label: 'Inventory Hut',
         desc: 'A sturdy hut to store your gear and gathered materials safely.',
         resources: [
             { name: '15 Wood', icon: '\uD83E\uDEB5' },
@@ -1253,7 +1253,7 @@ var campBuildings = {
         questRequired: 3
     },
     gathering: {
-        icon: '\uD83C\uDF3F', builtIcon: '\uD83C\uDF3F', label: 'Gathering Post',
+        builtIcon: '\uD83C\uDF3F', label: 'Gathering Post',
         desc: 'A post for organizing resource gathering expeditions.',
         resources: [
             { name: '10 Wood', icon: '\uD83E\uDEB5' },
@@ -1263,7 +1263,7 @@ var campBuildings = {
         questRequired: 4
     },
     watchtower: {
-        icon: '\uD83D\uDDFC', builtIcon: '\uD83D\uDDFC', label: 'Watchtower',
+        builtIcon: '\uD83D\uDDFC', label: 'Watchtower',
         desc: 'A tall lookout tower with a beacon fire. Defends against threats.',
         resources: [
             { name: '25 Wood', icon: '\uD83E\uDEB5' },
@@ -1436,7 +1436,8 @@ function openCraftDialog() {
     for (var t = 0; t < tools.length; t++) {
         var tool = tools[t];
         var crafted = campState.tools[tool.id];
-        craftHTML += '<div class="craft-item' + (crafted ? ' crafted' : '') + '" tabindex="0" role="button" aria-label="Craft ' + tool.name + '" onclick="craftTool(\'' + tool.id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();craftTool(\'' + tool.id + '\');}">';
+        var ariaText = crafted ? tool.name + ' - Already Crafted' : 'Craft ' + tool.name;
+        craftHTML += '<div class="craft-item' + (crafted ? ' crafted' : '') + '" tabindex="0" role="button" aria-label="' + ariaText + '" onclick="craftTool(\'' + tool.id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();craftTool(\'' + tool.id + '\');}">';
         craftHTML += '<span class="craft-icon">' + tool.icon + '</span>';
         craftHTML += '<span class="craft-name">' + tool.name + '</span>';
         craftHTML += '<span class="craft-status">' + (crafted ? '\u2713 Crafted' : tool.res) + '</span>';
@@ -1511,7 +1512,7 @@ function craftTool(toolId) {
     campState.tools[toolId] = true;
 
     // Check if all tools crafted
-    var allCrafted = campState.tools.axe && campState.tools.pickaxe && campState.tools.hammer;
+    var allCrafted = Object.keys(campState.tools).every(function(k) { return campState.tools[k]; });
 
     // Refresh craft dialog
     openCraftDialog();
