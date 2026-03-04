@@ -358,7 +358,7 @@
         <div class="logo-dev">by TimmieTooth</div>
     </div>
     <button class="tab-btn active" data-tab="home" onclick="showTab('home')"><span class="tab-icon">&#127968;</span> Home</button>
-    <button class="tab-btn" data-tab="camp" onclick="showTab('camp')"><span class="tab-icon">&#9978;</span> Camp Demo</button>
+    <button class="tab-btn" data-tab="camp" onclick="showTab('camp')" aria-label="Camp Demo - Interactive camp building experience"><span class="tab-icon">&#9978;</span> Camp Demo</button>
     <button class="tab-btn" data-tab="gameinfo" onclick="showTab('gameinfo')"><span class="tab-icon">&#127918;</span> Game Info</button>
     <button class="tab-btn" data-tab="images" onclick="showTab('images')"><span class="tab-icon">&#128444;&#65039;</span> Images</button>
     <button class="tab-btn" data-tab="videos" onclick="showTab('videos')"><span class="tab-icon">&#127909;</span> Videos</button>
@@ -481,7 +481,7 @@
                 <div class="camp-character">&#128167;</div>
             </div>
             <!-- Building spots -->
-            <div class="building-spot available" id="spot-forge" style="left:12%;top:15%;" onclick="openBuildDialog('forge')">
+            <div class="building-spot available" id="spot-forge" style="left:12%;top:15%;" tabindex="0" role="button" aria-label="Build Forge" onclick="openBuildDialog('forge')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBuildDialog('forge');}">
                 <div class="spot-icon">&#10067;</div>
                 <div class="spot-label">Forge</div>
                 <div class="build-particles"></div>
@@ -490,7 +490,7 @@
                     <div class="fire-emoji">&#128293;</div>
                 </div>
             </div>
-            <div class="building-spot locked" id="spot-inventory" style="right:12%;top:45%;" onclick="openBuildDialog('inventory')">
+            <div class="building-spot locked" id="spot-inventory" style="right:12%;top:45%;" tabindex="0" role="button" aria-label="Build Inventory Hut" onclick="openBuildDialog('inventory')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBuildDialog('inventory');}">
                 <div class="spot-icon">&#10067;</div>
                 <div class="spot-label">Inventory</div>
                 <div class="build-particles"></div>
@@ -499,7 +499,7 @@
                     <div class="fire-emoji">&#128293;</div>
                 </div>
             </div>
-            <div class="building-spot locked" id="spot-gathering" style="left:10%;bottom:12%;" onclick="openBuildDialog('gathering')">
+            <div class="building-spot locked" id="spot-gathering" style="left:10%;bottom:12%;" tabindex="0" role="button" aria-label="Build Gathering Post" onclick="openBuildDialog('gathering')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBuildDialog('gathering');}">
                 <div class="spot-icon">&#10067;</div>
                 <div class="spot-label">Gathering</div>
                 <div class="build-particles"></div>
@@ -507,7 +507,7 @@
                     <div class="fireflies" id="fireflies-gathering"></div>
                 </div>
             </div>
-            <div class="building-spot locked" id="spot-watchtower" style="right:12%;top:8%;" onclick="openBuildDialog('watchtower')">
+            <div class="building-spot locked" id="spot-watchtower" style="right:12%;top:8%;" tabindex="0" role="button" aria-label="Build Watchtower" onclick="openBuildDialog('watchtower')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openBuildDialog('watchtower');}">
                 <div class="spot-icon">&#10067;</div>
                 <div class="spot-label">Watchtower</div>
                 <div class="build-particles"></div>
@@ -519,7 +519,7 @@
             <!-- Build dialog overlay -->
             <div class="build-dialog-overlay" id="build-dialog-overlay">
                 <div class="build-dialog" id="build-dialog">
-                    <button class="build-dialog-close" onclick="closeBuildDialog()">&times;</button>
+                    <button class="build-dialog-close" onclick="closeBuildDialog()" aria-label="Close dialog">&times;</button>
                     <div class="build-icon" id="dialog-icon"></div>
                     <h3 id="dialog-title"></h3>
                     <div class="build-desc" id="dialog-desc"></div>
@@ -1284,7 +1284,6 @@ var questHints = {
 };
 
 function initCamp() {
-    if (campState.initialized) return;
     campState.initialized = true;
     updateCampUI();
 }
@@ -1355,7 +1354,8 @@ function updateCampUI() {
 
 function generateFireflies() {
     var container = document.getElementById('fireflies-gathering');
-    if (!container || container.children.length > 0) return;
+    if (!container) return;
+    container.innerHTML = '';
     for (var i = 0; i < 8; i++) {
         var fly = document.createElement('span');
         fly.className = 'firefly';
@@ -1436,7 +1436,7 @@ function openCraftDialog() {
     for (var t = 0; t < tools.length; t++) {
         var tool = tools[t];
         var crafted = campState.tools[tool.id];
-        craftHTML += '<div class="craft-item' + (crafted ? ' crafted' : '') + '" onclick="craftTool(\'' + tool.id + '\')">';
+        craftHTML += '<div class="craft-item' + (crafted ? ' crafted' : '') + '" tabindex="0" role="button" aria-label="Craft ' + tool.name + '" onclick="craftTool(\'' + tool.id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();craftTool(\'' + tool.id + '\');}">';
         craftHTML += '<span class="craft-icon">' + tool.icon + '</span>';
         craftHTML += '<span class="craft-name">' + tool.name + '</span>';
         craftHTML += '<span class="craft-status">' + (crafted ? '\u2713 Crafted' : tool.res) + '</span>';
@@ -1528,14 +1528,13 @@ function craftTool(toolId) {
 function completeQuest() {
     campState.currentQuest++;
 
-    // Quest 4 special: auto-gather after building gathering post
+    // Just finished quest 3 (Inventory), now quest 4 (Gather) is active - make gathering post available
     if (campState.currentQuest === 4) {
-        // Gathering post becomes available
         updateCampUI();
         return;
     }
 
-    // After gathering post is built (quest was 4, now 5), show gathering animation
+    // Just finished quest 4 (built Gathering Post), now play auto-gather animation before quest 5
     if (campState.currentQuest === 5 && campState.buildings.gathering) {
         var gatherSpot = document.getElementById('spot-gathering');
         if (gatherSpot) {
