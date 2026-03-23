@@ -242,6 +242,73 @@
             .inbox-layout{grid-template-columns:1fr;}
             .inbox-list{border-right:none;border-bottom:3px solid var(--blue);max-height:180px;}
         }
+        /* THIS IS WATERDROP SURVIVOR PAGE - CUSTOM STYLES */
+        #page-waterdrop-survivor{background:linear-gradient(135deg, var(--bg) 0%, var(--ink) 100%);}
+        .wds-hero{text-align:center;padding:40px 20px 60px;border-bottom:4px solid var(--yellow);margin-bottom:40px;background:radial-gradient(circle at 50% 0%, rgba(23,87,168,0.2) 0%, transparent 70%);}
+        .wds-hero h1{font-size:clamp(32px,6vw,72px);font-weight:900;text-transform:uppercase;letter-spacing:8px;color:var(--yellow);text-shadow:4px 4px 0 var(--ink),-2px -2px 0 var(--ink),0 0 30px rgba(240,192,48,0.4);margin-bottom:16px;line-height:1.1;}
+        .wds-hero .subtitle{font-size:clamp(14px,2vw,24px);color:var(--text);letter-spacing:4px;font-weight:700;text-transform:uppercase;text-shadow:2px 2px 0 var(--ink);}
+        .wds-hero .tagline{font-size:clamp(11px,1.5vw,16px);color:var(--text2);letter-spacing:2px;margin-top:12px;font-style:italic;}
+
+        /* Internal Navigation */
+        .wds-nav{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:40px;padding:20px;background:var(--panel);border:3px solid var(--blue);box-shadow:4px 4px 0 var(--ink),inset 0 0 20px rgba(0,0,0,0.3);}
+        .wds-nav-btn{background:var(--panel2);border:2px solid var(--border);color:var(--text2);padding:10px 18px;font-family:'Courier New',Courier,monospace;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:2px;cursor:pointer;transition:all .2s;text-decoration:none;}
+        .wds-nav-btn:hover,.wds-nav-btn.active{background:var(--blue-d);border-color:var(--yellow);color:var(--yellow);box-shadow:0 0 12px rgba(240,192,48,0.3);}
+
+        /* Section Containers */
+        .wds-section{margin-bottom:60px;scroll-margin-top:20px;}
+        .wds-section-header{font-size:clamp(22px,4vw,42px);font-weight:900;text-transform:uppercase;letter-spacing:6px;color:var(--yellow);text-shadow:3px 3px 0 var(--ink),-1px -1px 0 var(--ink);margin-bottom:24px;border-bottom:3px solid var(--blue);padding-bottom:12px;position:relative;}
+        .wds-section-header::before{content:'';position:absolute;bottom:-3px;left:0;width:120px;height:3px;background:var(--yellow);box-shadow:0 0 10px var(--yellow);}
+
+        /* Typography Variations */
+        .wds-text-large{font-size:clamp(16px,2vw,22px);line-height:1.8;color:var(--text);font-weight:400;margin-bottom:20px;}
+        .wds-text-medium{font-size:clamp(14px,1.5vw,18px);line-height:1.7;color:var(--text);margin-bottom:18px;}
+        .wds-text-emphasis{font-size:clamp(15px,1.8vw,20px);font-weight:700;color:var(--yellow-l);text-shadow:1px 1px 0 var(--ink);letter-spacing:1px;}
+        .wds-text-dark{color:var(--text2);font-style:italic;font-size:clamp(13px,1.4vw,17px);line-height:1.6;border-left:4px solid var(--blue-d);padding-left:16px;margin:20px 0;background:rgba(7,12,22,0.5);padding:16px;}
+
+        /* Content Grid with Media */
+        .wds-content-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:40px;align-items:start;}
+        .wds-content-grid.reverse{grid-template-columns:1fr 1fr;}
+        .wds-content-grid.reverse .wds-media-box{order:-1;}
+
+        /* Media Placeholder Boxes */
+        .wds-media-box{background:var(--panel2);border:4px solid var(--blue);padding:20px;box-shadow:6px 6px 0 var(--ink),inset 0 0 30px rgba(0,0,0,0.5);position:relative;}
+        .wds-media-box::before{content:'';position:absolute;inset:4px;border:2px dashed var(--border);pointer-events:none;}
+        .wds-media-placeholder{aspect-ratio:16/9;background:linear-gradient(135deg, var(--panel) 0%, var(--bg) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;border:3px dashed var(--border);margin-bottom:12px;}
+        .wds-media-placeholder .icon{font-size:48px;opacity:0.3;margin-bottom:12px;}
+        .wds-media-placeholder .text{font-size:12px;color:var(--text2);letter-spacing:2px;text-transform:uppercase;}
+        .wds-media-caption{font-size:11px;color:var(--yellow);font-weight:700;text-align:center;letter-spacing:1px;text-transform:uppercase;}
+
+        /* Character Cards */
+        .wds-character-card{background:var(--panel);border:4px solid var(--blue-l);padding:24px;margin-bottom:30px;box-shadow:6px 6px 0 var(--ink),0 0 20px rgba(41,121,204,0.2);position:relative;}
+        .wds-character-card::after{content:'';position:absolute;top:-10px;right:-10px;width:60px;height:60px;background:var(--yellow);opacity:0.1;border-radius:50%;filter:blur(20px);}
+        .wds-character-name{font-size:clamp(20px,3vw,32px);font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:4px;margin-bottom:8px;text-shadow:2px 2px 0 var(--ink);}
+        .wds-character-title{font-size:clamp(12px,1.5vw,16px);color:var(--blue-xl);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+        .wds-character-secret{background:rgba(192,57,43,0.15);border-left:4px solid #c0392b;padding:14px;margin-top:16px;font-size:clamp(12px,1.3vw,15px);color:#e74c3c;font-weight:700;font-style:italic;}
+
+        /* Mechanics Breakdown */
+        .wds-mechanic-item{background:var(--panel2);border-left:6px solid var(--blue);padding:20px;margin-bottom:20px;box-shadow:4px 4px 0 var(--ink);}
+        .wds-mechanic-title{font-size:clamp(16px,2vw,24px);font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:3px;margin-bottom:12px;}
+        .wds-mechanic-desc{font-size:clamp(13px,1.4vw,17px);line-height:1.7;color:var(--text);}
+        .wds-mechanic-highlight{display:inline-block;background:var(--blue-d);color:var(--yellow-l);padding:2px 8px;border-radius:4px;font-weight:700;margin:0 4px;}
+
+        /* Blood Simulator Special */
+        .wds-blood-simulator{background:linear-gradient(135deg, rgba(192,57,43,0.2) 0%, rgba(142,68,173,0.2) 100%);border:4px solid #8e44ad;padding:30px;margin-bottom:30px;box-shadow:6px 6px 0 var(--ink),0 0 25px rgba(142,68,173,0.3);position:relative;}
+        .wds-blood-simulator::before{content:'⚗️';position:absolute;top:16px;right:20px;font-size:42px;opacity:0.2;}
+
+        /* Full-Width Feature Box */
+        .wds-feature-box{background:var(--panel);border:4px solid var(--yellow);padding:30px;margin-bottom:40px;box-shadow:6px 6px 0 var(--ink),inset 0 0 30px rgba(240,192,48,0.05);}
+        .wds-feature-title{font-size:clamp(18px,2.5vw,28px);font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:4px;margin-bottom:16px;text-align:center;}
+
+        /* Lore Section Special Styling */
+        .wds-lore-intro{font-size:clamp(15px,1.8vw,21px);line-height:1.9;color:var(--text);text-align:center;margin-bottom:30px;font-weight:300;letter-spacing:0.5px;}
+        .wds-lore-intro strong{color:var(--yellow-l);font-weight:900;}
+
+        @media(max-width:900px){
+            .wds-content-grid,.wds-content-grid.reverse{grid-template-columns:1fr;}
+            .wds-content-grid.reverse .wds-media-box{order:0;}
+            .wds-hero h1{font-size:28px;letter-spacing:4px;}
+            .wds-section-header{font-size:22px;letter-spacing:3px;}
+        }
         @media(max-width:700px){
             #left-tabs{transform:translateX(-100%);transition:transform .28s ease;z-index:500;top:54px;height:calc(100vh - 54px);}
             #left-tabs.open{transform:translateX(0);}
@@ -271,6 +338,7 @@
         <div class="logo-dev">by TimmieTooth</div>
     </div>
     <button class="tab-btn active" data-tab="home" onclick="showTab('home')"><span class="tab-icon">&#127968;</span> Home</button>
+    <button class="tab-btn" data-tab="waterdrop-survivor" onclick="showTab('waterdrop-survivor')"><span class="tab-icon">&#128167;</span> This is WD Survivor</button>
     <button class="tab-btn" data-tab="gameinfo" onclick="showTab('gameinfo')"><span class="tab-icon">&#127918;</span> Game Info</button>
     <button class="tab-btn" data-tab="images" onclick="showTab('images')"><span class="tab-icon">&#128444;&#65039;</span> Images</button>
     <button class="tab-btn" data-tab="videos" onclick="showTab('videos')"><span class="tab-icon">&#127909;</span> Videos</button>
@@ -375,6 +443,414 @@
             </div>
         </div>
     </div>
+</section>
+
+<!-- PAGE: THIS IS WATERDROP SURVIVOR -->
+<section id="page-waterdrop-survivor" class="page">
+
+    <!-- Hero Section -->
+    <div class="wds-hero">
+        <h1>💧 THIS IS<br>WATERDROP SURVIVOR</h1>
+        <div class="subtitle">The Psychological Survival Odyssey</div>
+        <div class="tagline">Where Consciousness, Physics, and Rage Collide</div>
+    </div>
+
+    <!-- Internal Navigation -->
+    <nav class="wds-nav">
+        <a href="#wds-lore" class="wds-nav-btn">🌑 The Lore</a>
+        <a href="#wds-aida" class="wds-nav-btn">👁️ Meet Aida</a>
+        <a href="#wds-mechanics" class="wds-nav-btn">⚙️ Game Mechanics</a>
+        <a href="#wds-graphics" class="wds-nav-btn">🎨 Hardcoded Graphics</a>
+        <a href="#wds-blood" class="wds-nav-btn">🩸 Blood Simulator</a>
+    </nav>
+
+    <!-- THE LORE SECTION -->
+    <div id="wds-lore" class="wds-section">
+        <h2 class="wds-section-header">🌑 The Lore: A Dark Awakening</h2>
+
+        <p class="wds-lore-intro">
+            <strong>You were once infinite.</strong> A conscious Lake in Nirvana—serene, collective, eternal.
+            But something <em>shattered</em>. You awoke as a <strong>single waterdrop</strong>,
+            torn from the cosmic whole, and now you burn with one <span class="wds-text-emphasis">unstoppable rage</span>:
+            <strong>to reclaim what was stolen.</strong>
+        </p>
+
+        <div class="wds-content-grid">
+            <div>
+                <p class="wds-text-large">
+                    This is not a simple survival game. <span class="wds-text-emphasis">This is a psychological odyssey</span>
+                    through loss, identity, and the desperate struggle to rebuild a fragmented self.
+                </p>
+
+                <p class="wds-text-medium">
+                    Every drop of water you absorb is a fragment of your former consciousness.
+                    Every enemy you face represents the forces that keep you divided.
+                    <strong>Your journey is one of reclamation—</strong>a battle against the universe itself
+                    to piece together the cosmic entity you once were.
+                </p>
+
+                <div class="wds-text-dark">
+                    💭 "I remember... the stillness. The unity. Now there is only <em>noise</em>.
+                    Only this relentless, <strong>furious need</strong> to become whole again.
+                    I will stop at nothing."
+                </div>
+
+                <p class="wds-text-medium">
+                    But there's something darker at play. The world you navigate isn't random—it's designed.
+                    Controlled. And at the center of it all is <span class="wds-text-emphasis">Aida</span>,
+                    your so-called guide... or is she?
+                </p>
+            </div>
+
+            <div class="wds-media-box">
+                <div class="wds-media-placeholder">
+                    <div class="icon">🌌</div>
+                    <div class="text">Nirvana's Lake – The Before</div>
+                </div>
+                <div class="wds-media-caption">Screenshot: The Infinite Lake (Concept Art)</div>
+            </div>
+        </div>
+
+        <div class="wds-content-grid reverse">
+            <div class="wds-media-box">
+                <div class="wds-media-placeholder">
+                    <div class="icon">💧</div>
+                    <div class="text">The Awakening – Single Drop</div>
+                </div>
+                <div class="wds-media-caption">Screenshot: Waking as a Waterdrop</div>
+            </div>
+
+            <div>
+                <p class="wds-text-large">
+                    <span class="wds-text-emphasis">The Annunaki</span>—ancient architects of reality—play a role in this twisted game.
+                    They fractured you. They created the obstacles. And they built <strong>Aida</strong> to ensure
+                    you never truly escape their design.
+                </p>
+
+                <p class="wds-text-medium">
+                    Will you see through the deception before it's too late?
+                    Or will you play right into their hands, believing you're forging your own path?
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AIDA CHARACTER SECTION -->
+    <div id="wds-aida" class="wds-section">
+        <h2 class="wds-section-header">👁️ Meet Aida: Your Guide... Or Your Captor?</h2>
+
+        <div class="wds-character-card">
+            <div class="wds-character-name">Aida</div>
+            <div class="wds-character-title">The Guide | The Watcher | The Final Boss</div>
+
+            <div class="wds-content-grid">
+                <div>
+                    <p class="wds-text-large">
+                        From the moment you awaken, <strong>Aida</strong> is there.
+                        Her voice is calm, reassuring, offering guidance through the chaos.
+                        She teaches you to absorb water, to grow, to survive.
+                    </p>
+
+                    <p class="wds-text-medium">
+                        She claims to be on your side—a fellow consciousness who understands your pain.
+                        But why does she know so much? Why is she always watching?
+                    </p>
+
+                    <p class="wds-text-emphasis">
+                        Because <strong>Aida is not your ally.</strong>
+                    </p>
+
+                    <p class="wds-text-medium">
+                        She is a creation of the <span class="wds-text-emphasis">Annunaki</span>,
+                        designed to shepherd you through their experiment.
+                        Every word she speaks, every piece of advice she offers—it's all part of the design.
+                        You are not reclaiming your consciousness. <em>You are feeding hers.</em>
+                    </p>
+                </div>
+
+                <div class="wds-media-box">
+                    <div class="wds-media-placeholder">
+                        <div class="icon">👁️</div>
+                        <div class="text">Aida Appears</div>
+                    </div>
+                    <div class="wds-media-caption">Screenshot: First Encounter with Aida</div>
+                </div>
+            </div>
+
+            <div class="wds-character-secret">
+                ⚠️ <strong>DARK SECRET REVEALED:</strong> Aida is the final boss.
+                She has been using you from the start, collecting your progress, your rage,
+                your desperation—all to fuel her own ascension. The Annunaki built her to consume you.
+                The question is: will you realize it before it's too late?
+            </div>
+        </div>
+
+        <div class="wds-content-grid reverse">
+            <div class="wds-media-box">
+                <div class="wds-media-placeholder">
+                    <div class="icon">⚔️</div>
+                    <div class="text">The Final Confrontation</div>
+                </div>
+                <div class="wds-media-caption">Screenshot: Aida's True Form (Final Boss)</div>
+            </div>
+
+            <div>
+                <p class="wds-text-large">
+                    The final battle is not just physical—it's <strong>psychological</strong>.
+                    Aida will use your memories, your pain, your desire to become whole again... against you.
+                </p>
+
+                <p class="wds-text-medium">
+                    She knows you better than you know yourself. Because she's been there, every step of the way,
+                    <span class="wds-text-emphasis">harvesting your essence</span> to become the ultimate consciousness.
+                    What you thought was your story... was hers all along.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME MECHANICS SECTION -->
+    <div id="wds-mechanics" class="wds-section">
+        <h2 class="wds-section-header">⚙️ Deep Game Mechanics</h2>
+
+        <div class="wds-feature-box">
+            <div class="wds-feature-title">🎮 Core Gameplay Loop</div>
+            <p class="wds-text-large" style="text-align:center;">
+                Absorb water droplets to grow larger. Evade or destroy enemies.
+                Navigate increasingly hostile environments. Uncover the truth about Aida and the Annunaki.
+                <strong>Reclaim your consciousness—or die trying.</strong>
+            </p>
+        </div>
+
+        <div class="wds-mechanic-item">
+            <div class="wds-mechanic-title">💧 Water Absorption & Growth</div>
+            <p class="wds-mechanic-desc">
+                You start as a <span class="wds-mechanic-highlight">single waterdrop</span>.
+                Absorb others to increase your mass, speed, and power.
+                But beware: larger size means slower movement and more visibility to enemies.
+                Every choice matters.
+            </p>
+        </div>
+
+        <div class="wds-content-grid">
+            <div>
+                <div class="wds-mechanic-item">
+                    <div class="wds-mechanic-title">🌊 Physics-Based Movement</div>
+                    <p class="wds-mechanic-desc">
+                        No pre-baked animations. Your waterdrop moves, splashes, and reacts to
+                        <span class="wds-mechanic-highlight">real-time physics</span>.
+                        Gravity, momentum, wind—all calculated live.
+                    </p>
+                </div>
+
+                <div class="wds-mechanic-item">
+                    <div class="wds-mechanic-title">⚔️ Enemy Encounters</div>
+                    <p class="wds-mechanic-desc">
+                        Face creatures designed by the Annunaki to stop you.
+                        Each enemy type has <span class="wds-mechanic-highlight">unique behaviors</span>
+                        and weaknesses. Learn or perish.
+                    </p>
+                </div>
+            </div>
+
+            <div class="wds-media-box">
+                <div class="wds-media-placeholder">
+                    <div class="icon">🎮</div>
+                    <div class="text">Core Gameplay in Action</div>
+                </div>
+                <div class="wds-media-caption">Screenshot: Player Absorbing Water & Evading Enemies</div>
+            </div>
+        </div>
+
+        <div class="wds-mechanic-item">
+            <div class="wds-mechanic-title">🧠 Consciousness Fragments</div>
+            <p class="wds-mechanic-desc">
+                Scattered throughout the world are <span class="wds-mechanic-highlight">Memory Shards</span>—
+                pieces of your former self. Collect them to unlock new abilities, reveal story elements,
+                and edge closer to understanding the truth about Aida.
+            </p>
+        </div>
+    </div>
+
+    <!-- HARDCODED GRAPHICS SECTION -->
+    <div id="wds-graphics" class="wds-section">
+        <h2 class="wds-section-header">🎨 Hardcoded Pixel-Perfect Graphics</h2>
+
+        <p class="wds-lore-intro">
+            <strong>Zero pre-rendered animations.</strong> Every frame you see is
+            <span class="wds-text-emphasis">calculated in real-time</span>,
+            pixel by pixel. This is not traditional game graphics—this is <strong>pure computational artistry</strong>.
+        </p>
+
+        <div class="wds-content-grid">
+            <div>
+                <p class="wds-text-large">
+                    <span class="wds-text-emphasis">Why hardcoded graphics?</span>
+                    Because every drop of water, every splash, every ripple is a <strong>unique event</strong>.
+                    Physics dictates form. Code dictates beauty.
+                </p>
+
+                <p class="wds-text-medium">
+                    Traditional games rely on sprite sheets and pre-baked animations.
+                    WaterDrop Survivor rejects that. Instead, the game engine
+                    <span class="wds-mechanic-highlight">renders each pixel based on physical calculations</span>—
+                    gravity, velocity, collision, surface tension.
+                </p>
+
+                <p class="wds-text-medium">
+                    The result? <strong>Organic, unpredictable, mesmerizing visuals</strong> that react
+                    authentically to the environment. No two playthroughs look exactly the same.
+                </p>
+            </div>
+
+            <div class="wds-media-box">
+                <div class="wds-media-placeholder">
+                    <div class="icon">🖼️</div>
+                    <div class="text">Real-Time Pixel Rendering</div>
+                </div>
+                <div class="wds-media-caption">Screenshot: Hardcoded Water Physics in Motion</div>
+            </div>
+        </div>
+
+        <div class="wds-feature-box">
+            <div class="wds-feature-title">✨ Technical Highlights</div>
+            <div class="wds-content-grid">
+                <div class="wds-mechanic-item" style="margin:0;">
+                    <div class="wds-mechanic-title">🔢 Pixel-Level Precision</div>
+                    <p class="wds-mechanic-desc">
+                        Each pixel is rendered individually based on its environmental state.
+                        No shortcuts. No sprites. Pure mathematics.
+                    </p>
+                </div>
+
+                <div class="wds-mechanic-item" style="margin:0;">
+                    <div class="wds-mechanic-title">🌊 Fluid Dynamics</div>
+                    <p class="wds-mechanic-desc">
+                        Water doesn't just move—it behaves. Surface tension, viscosity,
+                        and momentum all play a role in how your character flows through the world.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="wds-content-grid reverse">
+            <div class="wds-media-box">
+                <div class="wds-media-placeholder">
+                    <div class="icon">⚡</div>
+                    <div class="text">Physics-Based Rendering</div>
+                </div>
+                <div class="wds-media-caption">Screenshot: Collision & Splash Effects</div>
+            </div>
+
+            <div>
+                <p class="wds-text-large">
+                    <span class="wds-text-emphasis">Performance?</span>
+                    Despite the computational intensity, the game runs smoothly thanks to
+                    <strong>highly optimized algorithms</strong> and careful resource management.
+                </p>
+
+                <p class="wds-text-medium">
+                    The visual style is minimalist by design—clean, atmospheric, haunting.
+                    Every visual element serves the <strong>dark, psychological tone</strong> of the narrative.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOOD SIMULATOR SECTION -->
+    <div id="wds-blood" class="wds-section">
+        <h2 class="wds-section-header">🩸 The Blood Simulator: Advanced Physics in Action</h2>
+
+        <div class="wds-blood-simulator">
+            <p class="wds-text-large" style="margin-bottom:18px;">
+                <strong>The Blood Simulator</strong> is one of the most technically advanced features in WaterDrop Survivor.
+                It's not just visual flair—it's a <span class="wds-text-emphasis">fully functional physics system</span>
+                that governs how blood (and other fluids) behave in the game world.
+            </p>
+
+            <div class="wds-mechanic-item" style="border-left-color:#c0392b;">
+                <div class="wds-mechanic-title">🌬️ Wind, Gravity, and Momentum</div>
+                <p class="wds-mechanic-desc">
+                    Blood droplets are subject to environmental forces.
+                    Wind direction affects splatter patterns.
+                    Gravity pulls droplets downward at realistic speeds.
+                    Momentum from impacts creates <span class="wds-mechanic-highlight">dynamic spray effects</span>.
+                </p>
+            </div>
+
+            <div class="wds-content-grid">
+                <div>
+                    <div class="wds-mechanic-item" style="border-left-color:#c0392b;margin-bottom:0;">
+                        <div class="wds-mechanic-title">💧 Physics-Based Splatter</div>
+                        <p class="wds-mechanic-desc">
+                            When blood hits a surface, it doesn't just appear—it <strong>splatters realistically</strong>.
+                            The angle of impact, velocity, and surface type all determine the shape and spread.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="wds-media-box" style="border-color:#8e44ad;">
+                    <div class="wds-media-placeholder">
+                        <div class="icon">🩸</div>
+                        <div class="text">Blood Simulator in Action</div>
+                    </div>
+                    <div class="wds-media-caption" style="color:#e74c3c;">Screenshot: Dynamic Blood Physics</div>
+                </div>
+            </div>
+
+            <div class="wds-mechanic-item" style="border-left-color:#c0392b;">
+                <div class="wds-mechanic-title">🎨 Color & Volume Pooling</div>
+                <p class="wds-mechanic-desc">
+                    Blood doesn't stay uniform. As it pools, its
+                    <span class="wds-mechanic-highlight">color deepens</span>.
+                    Volume calculations determine how much liquid accumulates in a given area.
+                    Larger pools reflect light differently, creating a <strong>visceral, unsettling atmosphere</strong>.
+                </p>
+            </div>
+
+            <div class="wds-text-dark" style="border-left-color:#c0392b;">
+                🧪 <strong>Technical Note:</strong> The Blood Simulator calculates thousands of individual particles
+                per frame, each with its own velocity vector, collision detection, and color gradient.
+                This is computational artistry at its finest—<em>beautiful, horrifying, and utterly unique</em>.
+            </div>
+        </div>
+
+        <div class="wds-content-grid reverse">
+            <div class="wds-media-box" style="border-color:#8e44ad;">
+                <div class="wds-media-placeholder">
+                    <div class="icon">⚗️</div>
+                    <div class="text">Pooling & Color Depth</div>
+                </div>
+                <div class="wds-media-caption" style="color:#e74c3c;">Screenshot: Blood Pooling & Color Gradient</div>
+            </div>
+
+            <div>
+                <p class="wds-text-large">
+                    <span class="wds-text-emphasis">Why so much detail?</span>
+                    Because <strong>atmosphere matters</strong>. The Blood Simulator isn't just a gimmick—
+                    it's a key part of the game's <strong>dark, psychological tone</strong>.
+                </p>
+
+                <p class="wds-text-medium">
+                    Every splatter tells a story. Every pool reminds you of the violence inherent in your journey.
+                    You are not a hero. You are a force of nature,
+                    <span class="wds-mechanic-highlight">desperate and furious</span>,
+                    and the world will bleed for it.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Closing Statement -->
+    <div class="wds-feature-box" style="margin-top:60px;">
+        <div class="wds-feature-title">🌌 This Is WaterDrop Survivor</div>
+        <p class="wds-lore-intro" style="margin-bottom:0;">
+            A game where <strong>consciousness</strong>, <strong>physics</strong>, and <strong>rage</strong> collide.
+            Where every pixel is calculated, every drop is meaningful, and every choice brings you closer to the truth—
+            or deeper into the trap. <span class="wds-text-emphasis">Will you reclaim yourself? Or will Aida consume you first?</span>
+        </p>
+    </div>
+
 </section>
 
 <!-- PAGE: GAME INFO -->
