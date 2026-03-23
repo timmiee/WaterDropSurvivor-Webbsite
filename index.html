@@ -303,11 +303,58 @@
         .wds-lore-intro{font-size:clamp(15px,1.8vw,21px);line-height:1.9;color:var(--text);text-align:center;margin-bottom:30px;font-weight:300;letter-spacing:0.5px;}
         .wds-lore-intro strong{color:var(--yellow-l);font-weight:900;}
 
+        /* Game Comparison Charts */
+        .wds-comparison-container{background:var(--panel);border:4px solid var(--blue-l);padding:30px;margin-bottom:30px;box-shadow:6px 6px 0 var(--ink),0 0 25px rgba(41,121,204,0.2);position:relative;}
+        .wds-comparison-title{font-size:clamp(16px,2vw,22px);font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:3px;margin-bottom:20px;text-align:center;border-bottom:2px solid var(--blue);padding-bottom:10px;}
+        .wds-chart-wrapper{margin-bottom:30px;}
+        .wds-chart-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:clamp(12px,1.3vw,15px);color:var(--text);font-weight:700;}
+        .wds-chart-bar-container{background:var(--panel2);border:2px solid var(--border);height:40px;position:relative;overflow:hidden;box-shadow:inset 0 4px 8px rgba(0,0,0,0.4);}
+        .wds-chart-bar{height:100%;background:linear-gradient(90deg,var(--blue),var(--blue-xl));position:relative;transition:width 1s ease;display:flex;align-items:center;justify-content:flex-end;padding-right:12px;font-size:13px;font-weight:900;color:var(--yellow);text-shadow:1px 1px 0 var(--ink);}
+        .wds-chart-bar.wds-full{background:linear-gradient(90deg,var(--yellow-d),var(--yellow));}
+        .wds-chart-bar.wds-standard{background:linear-gradient(90deg,#555,#888);opacity:0.6;}
+        .wds-chart-note{font-size:11px;color:var(--text2);font-style:italic;margin-top:4px;padding-left:4px;}
+
+        /* Upgrade Tree Visualization */
+        .wds-upgrade-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:30px;}
+        .wds-upgrade-node{background:var(--panel2);border:3px solid var(--blue);padding:20px;position:relative;transition:all 0.3s ease;cursor:pointer;}
+        .wds-upgrade-node:hover{border-color:var(--yellow);box-shadow:0 0 20px rgba(240,192,48,0.3);transform:translateY(-4px);}
+        .wds-upgrade-node::before{content:'';position:absolute;top:-3px;left:-3px;right:-3px;bottom:-3px;background:linear-gradient(135deg,transparent 0%,rgba(240,192,48,0.1) 100%);opacity:0;transition:opacity 0.3s;}
+        .wds-upgrade-node:hover::before{opacity:1;}
+        .wds-upgrade-icon{font-size:32px;margin-bottom:10px;display:block;}
+        .wds-upgrade-name{font-size:clamp(14px,1.6vw,18px);font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;}
+        .wds-upgrade-desc{font-size:clamp(12px,1.3vw,14px);color:var(--text);line-height:1.5;margin-bottom:10px;}
+        .wds-upgrade-note{font-size:11px;color:var(--blue-xl);font-weight:700;font-style:italic;border-top:1px solid var(--border);padding-top:8px;margin-top:8px;}
+
+        /* Roadmap Timeline */
+        .wds-roadmap-timeline{position:relative;padding:40px 0;}
+        .wds-roadmap-line{position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--yellow) 0%,var(--blue) 50%,var(--text2) 100%);transform:translateX(-50%);}
+        .wds-roadmap-item{position:relative;margin-bottom:60px;display:flex;align-items:center;}
+        .wds-roadmap-item:nth-child(odd) .wds-roadmap-content{margin-left:auto;padding-left:0;padding-right:60px;text-align:right;}
+        .wds-roadmap-item:nth-child(even) .wds-roadmap-content{padding-left:60px;}
+        .wds-roadmap-content{width:calc(50% - 40px);background:var(--panel);border:3px solid var(--blue);padding:20px;box-shadow:4px 4px 0 var(--ink);position:relative;transition:all 0.3s ease;}
+        .wds-roadmap-content:hover{border-color:var(--yellow);box-shadow:6px 6px 0 var(--ink),0 0 20px rgba(240,192,48,0.3);}
+        .wds-roadmap-dot{position:absolute;left:50%;top:20px;width:24px;height:24px;background:var(--yellow);border:4px solid var(--ink);border-radius:50%;transform:translateX(-50%);z-index:2;box-shadow:0 0 15px var(--yellow);}
+        .wds-roadmap-item.completed .wds-roadmap-dot{background:var(--r-uncommon);}
+        .wds-roadmap-item.current .wds-roadmap-dot{background:var(--yellow);animation:pulse 2s infinite;}
+        .wds-roadmap-item.future .wds-roadmap-dot{background:var(--text2);box-shadow:none;}
+        @keyframes pulse{0%,100%{box-shadow:0 0 15px var(--yellow);}50%{box-shadow:0 0 30px var(--yellow),0 0 40px rgba(240,192,48,0.4);}}
+        .wds-roadmap-date{font-size:clamp(10px,1.2vw,13px);color:var(--blue-xl);font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+        .wds-roadmap-title{font-size:clamp(16px,2vw,22px);font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;}
+        .wds-roadmap-desc{font-size:clamp(12px,1.4vw,15px);color:var(--text);line-height:1.6;}
+        .wds-roadmap-status{display:inline-block;padding:4px 10px;margin-top:10px;font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;border-radius:3px;}
+        .wds-roadmap-status.completed{background:var(--r-uncommon);color:var(--ink);}
+        .wds-roadmap-status.current{background:var(--yellow);color:var(--ink);}
+        .wds-roadmap-status.future{background:var(--panel2);color:var(--text2);border:1px solid var(--border);}
+
         @media(max-width:900px){
             .wds-content-grid,.wds-content-grid.reverse{grid-template-columns:1fr;}
             .wds-content-grid.reverse .wds-media-box{order:0;}
             .wds-hero h1{font-size:28px;letter-spacing:4px;}
             .wds-section-header{font-size:22px;letter-spacing:3px;}
+            .wds-roadmap-line{left:20px;}
+            .wds-roadmap-item,.wds-roadmap-item:nth-child(odd){display:block;}
+            .wds-roadmap-item .wds-roadmap-content,.wds-roadmap-item:nth-child(odd) .wds-roadmap-content{width:calc(100% - 60px);margin-left:50px;padding:15px;text-align:left;}
+            .wds-roadmap-dot{left:20px;}
         }
         @media(max-width:700px){
             #left-tabs{transform:translateX(-100%);transition:transform .28s ease;z-index:500;top:54px;height:calc(100vh - 54px);}
@@ -460,8 +507,11 @@
         <a href="#wds-lore" class="wds-nav-btn">🌑 The Lore</a>
         <a href="#wds-aida" class="wds-nav-btn">👁️ Meet Aida</a>
         <a href="#wds-mechanics" class="wds-nav-btn">⚙️ Game Mechanics</a>
+        <a href="#wds-comparisons" class="wds-nav-btn">📊 Game Comparisons</a>
+        <a href="#wds-upgrades" class="wds-nav-btn">🔧 Advanced Upgrades</a>
         <a href="#wds-graphics" class="wds-nav-btn">🎨 Hardcoded Graphics</a>
         <a href="#wds-blood" class="wds-nav-btn">🩸 Blood Simulator</a>
+        <a href="#wds-roadmap" class="wds-nav-btn">🗺️ The Roadmap</a>
     </nav>
 
     <!-- THE LORE SECTION -->
@@ -672,6 +722,270 @@
         </div>
     </div>
 
+    <!-- GAME COMPARISONS & DIAGRAMS SECTION -->
+    <div id="wds-comparisons" class="wds-section">
+        <h2 class="wds-section-header">📊 Game Comparisons: WaterDrop vs Standard Survivor Games</h2>
+
+        <p class="wds-lore-intro">
+            <strong>This is NOT your typical survivor game.</strong>
+            WaterDrop Survivor features <span class="wds-text-emphasis">massively deeper mechanics</span>,
+            <strong>RPG-level stat systems</strong>, and complexity that puts traditional survivor games to shame.
+            <em>The charts below don't lie.</em>
+        </p>
+
+        <div class="wds-comparison-container">
+            <div class="wds-comparison-title">⚔️ Stat Depth & Complexity</div>
+
+            <div class="wds-chart-wrapper">
+                <div class="wds-chart-label">
+                    <span>💧 WaterDrop Survivor</span>
+                    <span>95/100</span>
+                </div>
+                <div class="wds-chart-bar-container">
+                    <div class="wds-chart-bar wds-full" style="width:95%;">95%</div>
+                </div>
+                <div class="wds-chart-note">120+ unique character stats including acceleration, momentum, surface tension, viscosity</div>
+            </div>
+
+            <div class="wds-chart-wrapper">
+                <div class="wds-chart-label">
+                    <span>🎮 Standard Survivor Game</span>
+                    <span>25/100</span>
+                </div>
+                <div class="wds-chart-bar-container">
+                    <div class="wds-chart-bar wds-standard" style="width:25%;">25%</div>
+                </div>
+                <div class="wds-chart-note">~15 basic stats (HP, damage, speed, regen)</div>
+            </div>
+        </div>
+
+        <div class="wds-comparison-container">
+            <div class="wds-comparison-title">🌲 Skill Tree Branches & Depth</div>
+
+            <div class="wds-chart-wrapper">
+                <div class="wds-chart-label">
+                    <span>💧 WaterDrop Survivor</span>
+                    <span>88/100</span>
+                </div>
+                <div class="wds-chart-bar-container">
+                    <div class="wds-chart-bar wds-full" style="width:88%;">88%</div>
+                </div>
+                <div class="wds-chart-note">7 major branches, 200+ unlockable abilities, 5+ tiers deep per branch</div>
+            </div>
+
+            <div class="wds-chart-wrapper">
+                <div class="wds-chart-label">
+                    <span>🎮 Standard Survivor Game</span>
+                    <span>30/100</span>
+                </div>
+                <div class="wds-chart-bar-container">
+                    <div class="wds-chart-bar wds-standard" style="width:30%;">30%</div>
+                </div>
+                <div class="wds-chart-note">3-5 basic upgrades, mostly passive damage/HP increases</div>
+            </div>
+        </div>
+
+        <div class="wds-comparison-container">
+            <div class="wds-comparison-title">🔫 Weapon Physics & Uniqueness</div>
+
+            <div class="wds-chart-wrapper">
+                <div class="wds-chart-label">
+                    <span>💧 WaterDrop Survivor</span>
+                    <span>92/100</span>
+                </div>
+                <div class="wds-chart-bar-container">
+                    <div class="wds-chart-bar wds-full" style="width:92%;">92%</div>
+                </div>
+                <div class="wds-chart-note">Each weapon has unique physics: bullets pierce & leave holes, explosions obey momentum</div>
+            </div>
+
+            <div class="wds-chart-wrapper">
+                <div class="wds-chart-label">
+                    <span>🎮 Standard Survivor Game</span>
+                    <span>20/100</span>
+                </div>
+                <div class="wds-chart-bar-container">
+                    <div class="wds-chart-bar wds-standard" style="width:20%;">20%</div>
+                </div>
+                <div class="wds-chart-note">Generic hitboxes, recycled animations, minimal variation</div>
+            </div>
+        </div>
+
+        <div class="wds-comparison-container">
+            <div class="wds-comparison-title">🧠 Environmental Interactions</div>
+
+            <div class="wds-chart-wrapper">
+                <div class="wds-chart-label">
+                    <span>💧 WaterDrop Survivor</span>
+                    <span>85/100</span>
+                </div>
+                <div class="wds-chart-bar-container">
+                    <div class="wds-chart-bar wds-full" style="width:85%;">85%</div>
+                </div>
+                <div class="wds-chart-note">Real-time wind, gravity, surface tension, fluid dynamics affecting all entities</div>
+            </div>
+
+            <div class="wds-chart-wrapper">
+                <div class="wds-chart-label">
+                    <span>🎮 Standard Survivor Game</span>
+                    <span>15/100</span>
+                </div>
+                <div class="wds-chart-bar-container">
+                    <div class="wds-chart-bar wds-standard" style="width:15%;">15%</div>
+                </div>
+                <div class="wds-chart-note">Static environments, minimal physics, pre-scripted events</div>
+            </div>
+        </div>
+
+        <div class="wds-feature-box">
+            <div class="wds-feature-title">🤓 The Verdict: Extreme Nerd-Level Complexity</div>
+            <p class="wds-text-large" style="text-align:center;">
+                <strong>WaterDrop Survivor</strong> operates at a completely different level.
+                While standard survivor games offer <span class="wds-mechanic-highlight">casual arcade fun</span>,
+                WaterDrop demands <span class="wds-text-emphasis">strategic mastery</span> of interconnected systems.
+                This is survival meets <strong>hardcore RPG simulation</strong>.
+            </p>
+        </div>
+    </div>
+
+    <!-- ADVANCED UPGRADES EXPLANATION SECTION -->
+    <div id="wds-upgrades" class="wds-section">
+        <h2 class="wds-section-header">🔧 Advanced Upgrades: Total Character Customization</h2>
+
+        <p class="wds-lore-intro">
+            In WaterDrop Survivor, <strong>NOTHING is free.</strong>
+            <span class="wds-text-emphasis">Even basic movement must be unlocked.</span>
+            Want to move faster? <strong>Buy acceleration.</strong>
+            Want tighter controls? <strong>Buy responsiveness.</strong>
+            Want to dash? <em>That's a whole skill tree branch.</em>
+        </p>
+
+        <div class="wds-feature-box">
+            <div class="wds-feature-title">💡 Philosophy: Earn Every Advantage</div>
+            <p class="wds-text-medium" style="text-align:center;margin-bottom:0;">
+                You start as a <strong>helpless waterdrop</strong>.
+                Slow, clumsy, fragile. Every upgrade you purchase <span class="wds-mechanic-highlight">transforms your playstyle</span>.
+                This isn't just getting stronger—it's <span class="wds-text-emphasis">rebuilding yourself from scratch</span>.
+            </p>
+        </div>
+
+        <div class="wds-upgrade-grid">
+            <div class="wds-upgrade-node">
+                <span class="wds-upgrade-icon">⚡</span>
+                <div class="wds-upgrade-name">Acceleration</div>
+                <div class="wds-upgrade-desc">
+                    Control how quickly your waterdrop reaches max speed. Base acceleration is PAINFULLY slow.
+                    Each upgrade tier makes movement feel snappier, more responsive.
+                </div>
+                <div class="wds-upgrade-note">5 tiers | Requires: Movement Mastery I</div>
+            </div>
+
+            <div class="wds-upgrade-node">
+                <span class="wds-upgrade-icon">🎯</span>
+                <div class="wds-upgrade-name">Responsiveness</div>
+                <div class="wds-upgrade-desc">
+                    Reduce input lag and turn radius. Without this, your drop feels like steering through mud.
+                    Essential for dodging attacks and precise maneuvering.
+                </div>
+                <div class="wds-upgrade-note">4 tiers | Requires: Neural Pathways II</div>
+            </div>
+
+            <div class="wds-upgrade-node">
+                <span class="wds-upgrade-icon">💨</span>
+                <div class="wds-upgrade-name">Dash Ability</div>
+                <div class="wds-upgrade-desc">
+                    Unlock the ability to perform a quick burst movement in any direction. Starts with 1 charge.
+                    Additional upgrades add charges, reduce cooldown, and increase distance.
+                </div>
+                <div class="wds-upgrade-note">Skill Tree Branch | 8 sub-upgrades</div>
+            </div>
+
+            <div class="wds-upgrade-node">
+                <span class="wds-upgrade-icon">🌊</span>
+                <div class="wds-upgrade-name">Surface Tension</div>
+                <div class="wds-upgrade-desc">
+                    Affects how your waterdrop holds together under pressure. Higher tension = tighter form,
+                    better collision resistance. Low tension = easier to split and absorb.
+                </div>
+                <div class="wds-upgrade-note">6 tiers | Trade-off mechanic</div>
+            </div>
+
+            <div class="wds-upgrade-node">
+                <span class="wds-upgrade-icon">🧲</span>
+                <div class="wds-upgrade-name">Absorption Range</div>
+                <div class="wds-upgrade-desc">
+                    Increase the radius at which you automatically pull in nearby water droplets.
+                    Game-changing for efficiency. Base range is almost zero.
+                </div>
+                <div class="wds-upgrade-note">5 tiers | Exponential growth</div>
+            </div>
+
+            <div class="wds-upgrade-node">
+                <span class="wds-upgrade-icon">🛡️</span>
+                <div class="wds-upgrade-name">Viscosity Control</div>
+                <div class="wds-upgrade-desc">
+                    Adjust how 'thick' your waterdrop is. Higher viscosity = slower but tankier.
+                    Lower viscosity = faster but more vulnerable. Strategic choice.
+                </div>
+                <div class="wds-upgrade-note">Dynamic slider | Real-time adjustment</div>
+            </div>
+        </div>
+
+        <div class="wds-blood-simulator" style="background:linear-gradient(135deg, rgba(23,87,168,0.2) 0%, rgba(15,28,46,0.3) 100%);border-color:var(--blue-l);">
+            <p class="wds-text-large" style="margin-bottom:18px;">
+                <strong>🔫 Weapons Have Unique, Physically Logical Animations</strong>
+            </p>
+
+            <div class="wds-content-grid">
+                <div>
+                    <div class="wds-mechanic-item">
+                        <div class="wds-mechanic-title">💥 Bullets</div>
+                        <p class="wds-mechanic-desc">
+                            Bullets <strong>pierce flesh</strong> and leave visible entry/exit wounds.
+                            The hole size depends on caliber and velocity. Blood spray direction is calculated
+                            based on <span class="wds-mechanic-highlight">momentum vectors</span>.
+                        </p>
+                    </div>
+
+                    <div class="wds-mechanic-item">
+                        <div class="wds-mechanic-title">🗡️ Melee Weapons</div>
+                        <p class="wds-mechanic-desc">
+                            Slashes create <strong>directional cuts</strong> with blood following the blade path.
+                            Blunt weapons cause <span class="wds-mechanic-highlight">impact deformation</span>
+                            and internal bleeding effects (pooling under skin).
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="wds-mechanic-item">
+                        <div class="wds-mechanic-title">💣 Explosives</div>
+                        <p class="wds-mechanic-desc">
+                            Explosions apply <strong>radial force</strong> to all nearby entities.
+                            Blood, limbs, and debris scatter based on distance from epicenter and
+                            <span class="wds-mechanic-highlight">shrapnel trajectories</span>.
+                        </p>
+                    </div>
+
+                    <div class="wds-mechanic-item">
+                        <div class="wds-mechanic-title">🔥 Energy Weapons</div>
+                        <p class="wds-mechanic-desc">
+                            Lasers cauterize wounds (minimal blood). Plasma weapons create
+                            <strong>superheated vapor</strong> clouds. Each weapon type has
+                            <span class="wds-mechanic-highlight">distinct blood behavior</span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wds-text-dark">
+                🎨 <strong>Why This Matters:</strong> Every weapon feels DIFFERENT. Not just in damage numbers,
+                but in how it <em>interacts with the world</em>. This is <strong>simulation-level detail</strong>
+                in a survivor game. Unheard of.
+            </div>
+        </div>
+    </div>
+
     <!-- HARDCODED GRAPHICS SECTION -->
     <div id="wds-graphics" class="wds-section">
         <h2 class="wds-section-header">🎨 Hardcoded Pixel-Perfect Graphics</h2>
@@ -838,6 +1152,176 @@
                     and the world will bleed for it.
                 </p>
             </div>
+        </div>
+    </div>
+
+    <!-- THE ROADMAP SECTION -->
+    <div id="wds-roadmap" class="wds-section">
+        <h2 class="wds-section-header">🗺️ The Roadmap: From Concept to Cosmic Showdown</h2>
+
+        <p class="wds-lore-intro">
+            <strong>This is where we've been. This is where we're going.</strong>
+            WaterDrop Survivor started as a <span class="wds-text-emphasis">crazy idea</span> and has evolved
+            into a <strong>full-fledged psychological survival odyssey</strong>.
+            The journey continues—here's the timeline.
+        </p>
+
+        <div class="wds-roadmap-timeline">
+            <div class="wds-roadmap-line"></div>
+
+            <!-- Milestone 1: Project Start -->
+            <div class="wds-roadmap-item completed">
+                <div class="wds-roadmap-dot"></div>
+                <div class="wds-roadmap-content">
+                    <div class="wds-roadmap-date">Jan 2024</div>
+                    <div class="wds-roadmap-title">🌱 Project Genesis</div>
+                    <div class="wds-roadmap-desc">
+                        The concept was born: a waterdrop survivor game with deep lore, physics-based mechanics,
+                        and psychological horror elements. Initial prototype built.
+                    </div>
+                    <span class="wds-roadmap-status completed">✓ Completed</span>
+                </div>
+            </div>
+
+            <!-- Milestone 2: Core Physics Engine -->
+            <div class="wds-roadmap-item completed">
+                <div class="wds-roadmap-dot"></div>
+                <div class="wds-roadmap-content">
+                    <div class="wds-roadmap-date">Feb 2024</div>
+                    <div class="wds-roadmap-title">⚙️ Physics Engine Foundation</div>
+                    <div class="wds-roadmap-desc">
+                        Built custom physics engine for fluid dynamics, surface tension, gravity, and collision detection.
+                        Real-time rendering system implemented.
+                    </div>
+                    <span class="wds-roadmap-status completed">✓ Completed</span>
+                </div>
+            </div>
+
+            <!-- Milestone 3: Blood Simulator -->
+            <div class="wds-roadmap-item completed">
+                <div class="wds-roadmap-dot"></div>
+                <div class="wds-roadmap-content">
+                    <div class="wds-roadmap-date">Apr 2024</div>
+                    <div class="wds-roadmap-title">🩸 Blood Simulator Advanced Build</div>
+                    <div class="wds-roadmap-desc">
+                        Implemented the revolutionary Blood Simulator with particle-level physics, momentum calculations,
+                        and dynamic color pooling. Thousands of particles per frame.
+                    </div>
+                    <span class="wds-roadmap-status completed">✓ Completed</span>
+                </div>
+            </div>
+
+            <!-- Milestone 4: Skill Tree System -->
+            <div class="wds-roadmap-item completed">
+                <div class="wds-roadmap-dot"></div>
+                <div class="wds-roadmap-content">
+                    <div class="wds-roadmap-date">Jun 2024</div>
+                    <div class="wds-roadmap-title">🌲 Deep Skill Tree System</div>
+                    <div class="wds-roadmap-desc">
+                        Launched 7 major skill branches with 200+ unlockable upgrades. Movement, combat, survival,
+                        and consciousness branches all fully functional.
+                    </div>
+                    <span class="wds-roadmap-status completed">✓ Completed</span>
+                </div>
+            </div>
+
+            <!-- Milestone 5: Lore Integration -->
+            <div class="wds-roadmap-item completed">
+                <div class="wds-roadmap-dot"></div>
+                <div class="wds-roadmap-content">
+                    <div class="wds-roadmap-date">Aug 2024</div>
+                    <div class="wds-roadmap-title">📖 Deep Lore & Narrative System</div>
+                    <div class="wds-roadmap-desc">
+                        Integrated the Aida storyline, Annunaki lore, and psychological horror elements.
+                        Memory Shards and narrative triggers added throughout gameplay.
+                    </div>
+                    <span class="wds-roadmap-status completed">✓ Completed</span>
+                </div>
+            </div>
+
+            <!-- Milestone 6: Alpha v0.390 -->
+            <div class="wds-roadmap-item completed">
+                <div class="wds-roadmap-dot"></div>
+                <div class="wds-roadmap-content">
+                    <div class="wds-roadmap-date">Dec 2024</div>
+                    <div class="wds-roadmap-title">🎮 Alpha v0.390 Released</div>
+                    <div class="wds-roadmap-desc">
+                        Major milestone: 389+ updates since v0.001. Quest 1-7 playable as free demo.
+                        Full game loop functional. Website launched.
+                    </div>
+                    <span class="wds-roadmap-status completed">✓ Completed</span>
+                </div>
+            </div>
+
+            <!-- Milestone 7: Current - Quest Line Expansion -->
+            <div class="wds-roadmap-item current">
+                <div class="wds-roadmap-dot"></div>
+                <div class="wds-roadmap-content">
+                    <div class="wds-roadmap-date">Feb 2025</div>
+                    <div class="wds-roadmap-title">🗡️ Quest 8-15 Development</div>
+                    <div class="wds-roadmap-desc">
+                        Currently building the next quest tier. New enemy types, environmental hazards,
+                        and deeper narrative revelations about Aida's true nature.
+                    </div>
+                    <span class="wds-roadmap-status current">⟳ In Progress</span>
+                </div>
+            </div>
+
+            <!-- Milestone 8: Multiplayer Experiments -->
+            <div class="wds-roadmap-item future">
+                <div class="wds-roadmap-dot"></div>
+                <div class="wds-roadmap-content">
+                    <div class="wds-roadmap-date">Q2 2025</div>
+                    <div class="wds-roadmap-title">🤝 Multiplayer Prototype</div>
+                    <div class="wds-roadmap-desc">
+                        Experimenting with co-op gameplay. Can multiple consciousness fragments work together?
+                        Or will they compete for dominance? Exploring the possibilities.
+                    </div>
+                    <span class="wds-roadmap-status future">◯ Planned</span>
+                </div>
+            </div>
+
+            <!-- Milestone 9: Aida Boss Battle -->
+            <div class="wds-roadmap-item future">
+                <div class="wds-roadmap-dot"></div>
+                <div class="wds-roadmap-content">
+                    <div class="wds-roadmap-date">Q3 2025</div>
+                    <div class="wds-roadmap-title">👁️ Aida Final Boss Implementation</div>
+                    <div class="wds-roadmap-desc">
+                        The climactic confrontation. Multi-phase boss battle combining physical combat,
+                        psychological manipulation, and narrative choices. Your entire journey leads here.
+                    </div>
+                    <span class="wds-roadmap-status future">◯ Planned</span>
+                </div>
+            </div>
+
+            <!-- Milestone 10: Full Release -->
+            <div class="wds-roadmap-item future">
+                <div class="wds-roadmap-dot"></div>
+                <div class="wds-roadmap-content">
+                    <div class="wds-roadmap-date">Q4 2025</div>
+                    <div class="wds-roadmap-title">🚀 Full 1.0 Release</div>
+                    <div class="wds-roadmap-desc">
+                        Complete storyline from awakening to final confrontation. All quests, all upgrades,
+                        all secrets revealed. The definitive WaterDrop Survivor experience.
+                    </div>
+                    <span class="wds-roadmap-status future">◯ Planned</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="wds-feature-box">
+            <div class="wds-feature-title">📝 How to Update This Roadmap</div>
+            <p class="wds-text-medium" style="text-align:center;margin-bottom:0;">
+                This roadmap is built with <strong>simple HTML</strong> and can be updated easily.
+                To add milestones: copy a <span class="wds-mechanic-highlight">&lt;div class="wds-roadmap-item"&gt;</span> block,
+                change the date/title/description, and set the class to
+                <span class="wds-mechanic-highlight">completed</span>,
+                <span class="wds-mechanic-highlight">current</span>, or
+                <span class="wds-mechanic-highlight">future</span>.
+                The timeline auto-adjusts!
+            </p>
         </div>
     </div>
 
