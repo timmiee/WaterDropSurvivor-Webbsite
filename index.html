@@ -367,6 +367,89 @@
             .comic-grid.triple{grid-template-columns:1fr;}
             .page-turn-hint{display:none;}
         }
+
+        /* COMMUNITY PORTAL STYLES */
+        .cp-dashboard{background:var(--panel);border:4px solid var(--blue-l);padding:28px;margin-bottom:24px;box-shadow:6px 6px 0 var(--ink),0 0 30px rgba(41,121,204,0.25);position:relative;}
+        .cp-dashboard::before{content:'';position:absolute;inset:4px;border:2px solid rgba(91,184,255,0.1);pointer-events:none;}
+        .cp-dashboard-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:14px;border-bottom:3px solid var(--blue);}
+        .cp-dashboard-title{font-size:clamp(18px,2.5vw,26px);font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:3px;text-shadow:2px 2px 0 var(--ink);}
+        .cp-dashboard-level{font-size:clamp(14px,1.8vw,20px);color:var(--blue-xl);font-weight:900;padding:6px 14px;background:var(--panel2);border:2px solid var(--blue-l);box-shadow:3px 3px 0 var(--ink);}
+
+        /* Player Stats Grid */
+        .cp-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:20px;}
+        .cp-stat-box{background:var(--panel2);border:3px solid var(--border);padding:16px;position:relative;transition:all .3s;}
+        .cp-stat-box:hover{border-color:var(--blue-l);box-shadow:0 0 20px rgba(41,121,204,0.3);transform:translateY(-3px);}
+        .cp-stat-label{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;}
+        .cp-stat-value{font-size:clamp(20px,3vw,32px);font-weight:900;color:var(--yellow);text-shadow:2px 2px 0 var(--ink);}
+        .cp-stat-icon{position:absolute;top:12px;right:12px;font-size:28px;opacity:0.15;}
+
+        /* Progress Bars */
+        .cp-progress-section{margin-bottom:24px;}
+        .cp-progress-label{display:flex;justify-content:space-between;font-size:12px;color:var(--text);font-weight:700;margin-bottom:6px;letter-spacing:1px;}
+        .cp-progress-bar-container{background:var(--panel2);border:3px solid var(--border);height:32px;position:relative;overflow:hidden;box-shadow:inset 0 4px 10px rgba(0,0,0,0.5);}
+        .cp-progress-bar{height:100%;background:linear-gradient(90deg,var(--blue-d),var(--blue-l));position:relative;transition:width 1.2s ease;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:11px;font-weight:900;color:var(--yellow);text-shadow:1px 1px 0 var(--ink);}
+        .cp-progress-bar.legendary{background:linear-gradient(90deg,#aa00ff,#ff6f00);animation:shimmer 2s infinite;}
+        @keyframes shimmer{0%,100%{filter:brightness(1);}50%{filter:brightness(1.3);}}
+
+        /* Achievement Cards */
+        .cp-achievements{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;margin-bottom:24px;}
+        .cp-achievement{background:var(--panel2);border:3px solid var(--border);padding:14px;text-align:center;position:relative;transition:all .3s;cursor:pointer;}
+        .cp-achievement.unlocked{border-color:var(--yellow);background:linear-gradient(135deg,var(--panel2) 0%,rgba(240,192,48,0.1) 100%);}
+        .cp-achievement.unlocked::before{content:'';position:absolute;inset:-3px;background:linear-gradient(135deg,var(--yellow),var(--blue-xl));opacity:0;animation:glowPulse 3s infinite;}
+        @keyframes glowPulse{0%,100%{opacity:0;}50%{opacity:0.2;}}
+        .cp-achievement:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.4);}
+        .cp-achievement-icon{font-size:36px;margin-bottom:8px;display:block;filter:grayscale(100%);}
+        .cp-achievement.unlocked .cp-achievement-icon{filter:grayscale(0%);animation:bounceIn 0.5s;}
+        @keyframes bounceIn{0%{transform:scale(0);}50%{transform:scale(1.1);}100%{transform:scale(1);}}
+        .cp-achievement-name{font-size:11px;font-weight:900;color:var(--text2);text-transform:uppercase;letter-spacing:1px;}
+        .cp-achievement.unlocked .cp-achievement-name{color:var(--yellow);}
+
+        /* RPG Graph Radar Chart */
+        .cp-rpg-chart{background:var(--panel);border:4px solid var(--blue);padding:24px;margin-bottom:24px;box-shadow:6px 6px 0 var(--ink),inset 0 0 40px rgba(0,0,0,0.4);position:relative;min-height:320px;}
+        .cp-rpg-chart-title{font-size:16px;font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;text-align:center;border-bottom:2px solid var(--blue);padding-bottom:8px;}
+        .cp-rpg-radar{position:relative;width:100%;max-width:400px;margin:0 auto;aspect-ratio:1;}
+        .cp-rpg-radar-bg{position:absolute;inset:0;background:radial-gradient(circle,rgba(41,121,204,0.05) 0%,transparent 70%);border:2px solid var(--border);border-radius:50%;}
+        .cp-radar-stat{position:absolute;font-size:11px;font-weight:900;color:var(--blue-xl);text-transform:uppercase;letter-spacing:1px;}
+
+        /* Leaderboard */
+        .cp-leaderboard{background:var(--panel);border:4px solid var(--yellow);padding:24px;margin-bottom:24px;box-shadow:6px 6px 0 var(--ink),0 0 30px rgba(240,192,48,0.2);}
+        .cp-leaderboard-header{font-size:clamp(20px,2.8vw,30px);font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:4px;text-align:center;margin-bottom:20px;text-shadow:3px 3px 0 var(--ink);border-bottom:3px solid var(--yellow);padding-bottom:12px;}
+        .cp-leaderboard-list{list-style:none;}
+        .cp-leaderboard-item{display:flex;align-items:center;gap:14px;padding:14px;margin-bottom:10px;background:var(--panel2);border:3px solid var(--border);transition:all .3s;position:relative;}
+        .cp-leaderboard-item:hover{border-color:var(--blue-l);box-shadow:0 0 16px rgba(41,121,204,0.3);transform:translateX(4px);}
+        .cp-leaderboard-item.top-3{border-color:var(--yellow);background:linear-gradient(90deg,rgba(240,192,48,0.15) 0%,var(--panel2) 100%);}
+        .cp-leaderboard-item.current-user{border-color:var(--blue-xl);border-width:4px;background:linear-gradient(90deg,rgba(91,184,255,0.2) 0%,var(--panel2) 100%);box-shadow:0 0 20px rgba(91,184,255,0.4),inset 0 0 30px rgba(91,184,255,0.1);}
+        .cp-leaderboard-item.current-user::before{content:'YOU';position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:10px;font-weight:900;color:var(--blue-xl);letter-spacing:2px;padding:4px 8px;background:var(--panel);border:2px solid var(--blue-xl);animation:pulse 2s infinite;}
+        .cp-rank{font-size:clamp(18px,2.2vw,26px);font-weight:900;color:var(--yellow);min-width:50px;text-align:center;text-shadow:2px 2px 0 var(--ink);}
+        .cp-rank-1{color:#FFD700;text-shadow:0 0 10px #FFD700,2px 2px 0 var(--ink);}
+        .cp-rank-2{color:#C0C0C0;text-shadow:0 0 8px #C0C0C0,2px 2px 0 var(--ink);}
+        .cp-rank-3{color:#CD7F32;text-shadow:0 0 8px #CD7F32,2px 2px 0 var(--ink);}
+        .cp-player-info{flex:1;}
+        .cp-player-name{font-size:clamp(14px,1.6vw,18px);font-weight:900;color:var(--text);text-transform:uppercase;letter-spacing:1px;}
+        .cp-player-level{font-size:11px;color:var(--text2);letter-spacing:1px;margin-top:2px;}
+        .cp-player-score{font-size:clamp(16px,2vw,22px);font-weight:900;color:var(--blue-xl);text-shadow:1px 1px 0 var(--ink);}
+
+        /* Community Wall */
+        .cp-wall{background:var(--panel);border:4px solid var(--blue);padding:24px;margin-bottom:24px;box-shadow:6px 6px 0 var(--ink),inset 0 0 30px rgba(0,0,0,0.3);}
+        .cp-wall-header{font-size:clamp(18px,2.5vw,26px);font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:3px;margin-bottom:18px;border-bottom:3px solid var(--blue);padding-bottom:10px;}
+        .cp-wall-post-form{margin-bottom:24px;padding:20px;background:var(--panel2);border:3px solid var(--border);}
+        .cp-wall-messages{max-height:600px;overflow-y:auto;}
+        .cp-wall-messages::-webkit-scrollbar{width:8px;}
+        .cp-wall-messages::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px;}
+        .cp-wall-messages::-webkit-scrollbar-track{background:var(--panel2);}
+        .cp-wall-message{background:var(--panel2);border:3px solid var(--border);padding:16px;margin-bottom:14px;position:relative;transition:all .3s;}
+        .cp-wall-message:hover{border-color:var(--blue-l);box-shadow:0 0 12px rgba(41,121,204,0.2);}
+        .cp-wall-message-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--border);}
+        .cp-wall-username{font-size:14px;font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:1px;}
+        .cp-wall-timestamp{font-size:10px;color:var(--text2);letter-spacing:1px;}
+        .cp-wall-message-body{font-size:13px;line-height:1.6;color:var(--text);}
+
+        /* Developer Message Special Styling */
+        .cp-wall-message.dev-message{background:linear-gradient(135deg,rgba(255,111,0,0.15) 0%,rgba(170,0,255,0.15) 100%);border:4px solid var(--r-legendary);box-shadow:0 0 30px rgba(255,111,0,0.4),inset 0 0 40px rgba(170,0,255,0.2),6px 6px 0 var(--ink);position:relative;animation:devGlow 3s infinite;}
+        @keyframes devGlow{0%,100%{box-shadow:0 0 30px rgba(255,111,0,0.4),inset 0 0 40px rgba(170,0,255,0.2),6px 6px 0 var(--ink);}50%{box-shadow:0 0 40px rgba(255,111,0,0.6),inset 0 0 50px rgba(170,0,255,0.3),6px 6px 0 var(--ink);}}
+        .cp-wall-message.dev-message::before{content:'⚡ DEVELOPER ⚡';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--r-legendary);color:var(--ink);font-size:10px;font-weight:900;letter-spacing:2px;padding:4px 12px;border:2px solid var(--ink);box-shadow:0 0 15px var(--r-legendary);}
+        .cp-wall-message.dev-message .cp-wall-username{color:var(--r-legendary);font-size:16px;text-shadow:0 0 10px var(--r-legendary),2px 2px 0 var(--ink);}
+        .cp-wall-message.dev-message .cp-wall-message-body{font-size:14px;font-weight:700;color:var(--yellow-l);}
     </style>
 </head>
 <body>
@@ -391,6 +474,9 @@
     <button class="tab-btn" data-tab="videos" onclick="showTab('videos')"><span class="tab-icon">&#127909;</span> Videos</button>
     <button class="tab-btn" data-tab="contact" onclick="showTab('contact')"><span class="tab-icon">&#9993;&#65039;</span> Contact</button>
     <button class="tab-btn" data-tab="developer" onclick="showTab('developer')"><span class="tab-icon">&#128104;&#8205;&#128187;</span> Developer</button>
+    <div class="tab-separator"></div>
+    <div class="tab-section-label">Community</div>
+    <button class="tab-btn" data-tab="community" onclick="showTab('community')"><span class="tab-icon">&#127760;</span> Community Portal</button>
     <div class="tab-separator"></div>
     <div class="tab-section-label">Account</div>
     <button class="tab-btn" id="tab-login-btn" data-tab="login" onclick="showTab('login')"><span class="tab-icon">&#128273;</span> <span id="tab-login-text">Login</span></button>
@@ -1863,6 +1949,325 @@
     </div>
 </section>
 
+<!-- PAGE: COMMUNITY PORTAL -->
+<section id="page-community" class="page">
+    <div class="page-header">
+        <h1>&#127760; Community Portal</h1>
+        <div class="page-sub">Connect with players, track progress, and join the community</div>
+    </div>
+
+    <!-- PLAYER DASHBOARD (Logged In Only) -->
+    <div id="community-dashboard-gate" class="auth-gate">
+        <div class="gate-icon">&#128274;</div>
+        <h2>Player Dashboard - Sign In Required</h2>
+        <p>Log in to view your detailed player dashboard with stats, achievements, and RPG graphs.</p>
+        <button class="btn btn-primary" onclick="showTab('login')">Login / Create Account</button>
+    </div>
+
+    <div id="community-dashboard-content" style="display:none;">
+        <div class="cp-dashboard">
+            <div class="cp-dashboard-header">
+                <div class="cp-dashboard-title">&#128100; <span id="cp-player-name">Player</span>'s Dashboard</div>
+                <div class="cp-dashboard-level">&#11088; Level <span id="cp-player-level">42</span></div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="cp-stats-grid">
+                <div class="cp-stat-box">
+                    <div class="cp-stat-icon">&#128167;</div>
+                    <div class="cp-stat-label">Total Drops Collected</div>
+                    <div class="cp-stat-value">128,450</div>
+                </div>
+                <div class="cp-stat-box">
+                    <div class="cp-stat-icon">&#9876;&#65039;</div>
+                    <div class="cp-stat-label">Enemies Defeated</div>
+                    <div class="cp-stat-value">9,234</div>
+                </div>
+                <div class="cp-stat-box">
+                    <div class="cp-stat-icon">&#9200;</div>
+                    <div class="cp-stat-label">Total Playtime</div>
+                    <div class="cp-stat-value">84h 32m</div>
+                </div>
+                <div class="cp-stat-box">
+                    <div class="cp-stat-icon">&#127942;</div>
+                    <div class="cp-stat-label">Quests Completed</div>
+                    <div class="cp-stat-value">18/25</div>
+                </div>
+            </div>
+
+            <!-- Progress Bars -->
+            <div class="cp-progress-section">
+                <div class="cp-progress-label">
+                    <span>&#11088; Level Progress</span>
+                    <span>4,850 / 5,000 XP</span>
+                </div>
+                <div class="cp-progress-bar-container">
+                    <div class="cp-progress-bar" style="width:97%;">97%</div>
+                </div>
+            </div>
+
+            <div class="cp-progress-section">
+                <div class="cp-progress-label">
+                    <span>&#128737;&#65039; Quest Progress</span>
+                    <span>Quest 18/25</span>
+                </div>
+                <div class="cp-progress-bar-container">
+                    <div class="cp-progress-bar" style="width:72%;">72%</div>
+                </div>
+            </div>
+
+            <div class="cp-progress-section">
+                <div class="cp-progress-label">
+                    <span>&#128081; Legendary Completion</span>
+                    <span>Epic Tier</span>
+                </div>
+                <div class="cp-progress-bar-container">
+                    <div class="cp-progress-bar legendary" style="width:88%;">88%</div>
+                </div>
+            </div>
+
+            <!-- Achievements Section -->
+            <div style="margin-top:30px;margin-bottom:14px;">
+                <h3 style="font-size:18px;font-weight:900;color:var(--yellow);text-transform:uppercase;letter-spacing:2px;border-bottom:2px solid var(--blue);padding-bottom:8px;">&#127942; Achievements</h3>
+            </div>
+            <div class="cp-achievements">
+                <div class="cp-achievement unlocked" title="First Drop - Collected your first water drop">
+                    <span class="cp-achievement-icon">&#128167;</span>
+                    <div class="cp-achievement-name">First Drop</div>
+                </div>
+                <div class="cp-achievement unlocked" title="Wave Master - Survived 100 waves">
+                    <span class="cp-achievement-icon">&#127754;</span>
+                    <div class="cp-achievement-name">Wave Master</div>
+                </div>
+                <div class="cp-achievement unlocked" title="Speed Demon - Completed a quest under 5 minutes">
+                    <span class="cp-achievement-icon">&#9889;</span>
+                    <div class="cp-achievement-name">Speed Demon</div>
+                </div>
+                <div class="cp-achievement unlocked" title="Hunter - Defeated 1,000 enemies">
+                    <span class="cp-achievement-icon">&#128298;</span>
+                    <div class="cp-achievement-name">Hunter</div>
+                </div>
+                <div class="cp-achievement unlocked" title="Camp Builder - Fully upgraded the camp">
+                    <span class="cp-achievement-icon">&#127970;</span>
+                    <div class="cp-achievement-name">Camp Builder</div>
+                </div>
+                <div class="cp-achievement" title="Perfectionist - Complete all quests with S rank">
+                    <span class="cp-achievement-icon">&#11088;</span>
+                    <div class="cp-achievement-name">Perfectionist</div>
+                </div>
+                <div class="cp-achievement" title="Legendary - Reach level 100">
+                    <span class="cp-achievement-icon">&#128081;</span>
+                    <div class="cp-achievement-name">Legendary</div>
+                </div>
+                <div class="cp-achievement" title="Survivor - Play for 100+ hours">
+                    <span class="cp-achievement-icon">&#9200;</span>
+                    <div class="cp-achievement-name">Survivor</div>
+                </div>
+            </div>
+
+            <!-- RPG Graph -->
+            <div class="cp-rpg-chart">
+                <div class="cp-rpg-chart-title">&#128202; Combat Stats Breakdown</div>
+                <div class="dev-note" style="text-align:center;margin-bottom:16px;">&#128221; Visual RPG stat display - full interactive radar chart coming in future update</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+                    <div class="cp-progress-section">
+                        <div class="cp-progress-label"><span>&#128737;&#65039; Attack Power</span><span>92/100</span></div>
+                        <div class="cp-progress-bar-container" style="height:24px;">
+                            <div class="cp-progress-bar" style="width:92%;font-size:10px;">92</div>
+                        </div>
+                    </div>
+                    <div class="cp-progress-section">
+                        <div class="cp-progress-label"><span>&#128737;&#65039; Defense</span><span>78/100</span></div>
+                        <div class="cp-progress-bar-container" style="height:24px;">
+                            <div class="cp-progress-bar" style="width:78%;font-size:10px;">78</div>
+                        </div>
+                    </div>
+                    <div class="cp-progress-section">
+                        <div class="cp-progress-label"><span>&#9889; Speed</span><span>85/100</span></div>
+                        <div class="cp-progress-bar-container" style="height:24px;">
+                            <div class="cp-progress-bar" style="width:85%;font-size:10px;">85</div>
+                        </div>
+                    </div>
+                    <div class="cp-progress-section">
+                        <div class="cp-progress-label"><span>&#10084;&#65039; Vitality</span><span>88/100</span></div>
+                        <div class="cp-progress-bar-container" style="height:24px;">
+                            <div class="cp-progress-bar" style="width:88%;font-size:10px;">88</div>
+                        </div>
+                    </div>
+                    <div class="cp-progress-section">
+                        <div class="cp-progress-label"><span>&#128165; Critical Hit</span><span>95/100</span></div>
+                        <div class="cp-progress-bar-container" style="height:24px;">
+                            <div class="cp-progress-bar" style="width:95%;font-size:10px;">95</div>
+                        </div>
+                    </div>
+                    <div class="cp-progress-section">
+                        <div class="cp-progress-label"><span>&#127775; Luck</span><span>66/100</span></div>
+                        <div class="cp-progress-bar-container" style="height:24px;">
+                            <div class="cp-progress-bar" style="width:66%;font-size:10px;">66</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL LEADERBOARD (Public - Always Visible) -->
+    <div class="cp-leaderboard">
+        <div class="cp-leaderboard-header">&#127942; All-Time High Leaderboard</div>
+        <div class="dev-note" style="text-align:center;margin-bottom:18px;">&#128221; Global leaderboard ranking all registered players by progression and level</div>
+        <ul class="cp-leaderboard-list" id="cp-leaderboard-list">
+            <li class="cp-leaderboard-item top-3">
+                <div class="cp-rank cp-rank-1">&#129351; 1</div>
+                <div class="cp-player-info">
+                    <div class="cp-player-name">ShadowBlade92</div>
+                    <div class="cp-player-level">Level 99 &#8226; Quest 25/25</div>
+                </div>
+                <div class="cp-player-score">458,920</div>
+            </li>
+            <li class="cp-leaderboard-item top-3">
+                <div class="cp-rank cp-rank-2">&#129352; 2</div>
+                <div class="cp-player-info">
+                    <div class="cp-player-name">StormChaser</div>
+                    <div class="cp-player-level">Level 97 &#8226; Quest 25/25</div>
+                </div>
+                <div class="cp-player-score">442,105</div>
+            </li>
+            <li class="cp-leaderboard-item top-3">
+                <div class="cp-rank cp-rank-3">&#129353; 3</div>
+                <div class="cp-player-info">
+                    <div class="cp-player-name">AquaWarrior</div>
+                    <div class="cp-player-level">Level 95 &#8226; Quest 24/25</div>
+                </div>
+                <div class="cp-player-score">398,750</div>
+            </li>
+            <li class="cp-leaderboard-item">
+                <div class="cp-rank">4</div>
+                <div class="cp-player-info">
+                    <div class="cp-player-name">NightHunter</div>
+                    <div class="cp-player-level">Level 88 &#8226; Quest 23/25</div>
+                </div>
+                <div class="cp-player-score">355,280</div>
+            </li>
+            <li class="cp-leaderboard-item">
+                <div class="cp-rank">5</div>
+                <div class="cp-player-info">
+                    <div class="cp-player-name">DragonSlayer</div>
+                    <div class="cp-player-level">Level 85 &#8226; Quest 22/25</div>
+                </div>
+                <div class="cp-player-score">312,445</div>
+            </li>
+            <li class="cp-leaderboard-item current-user" id="cp-current-user-rank" style="display:none;">
+                <div class="cp-rank">42</div>
+                <div class="cp-player-info">
+                    <div class="cp-player-name" id="cp-leaderboard-username">Player</div>
+                    <div class="cp-player-level">Level <span id="cp-leaderboard-level">42</span> &#8226; Quest <span id="cp-leaderboard-quest">18</span>/25</div>
+                </div>
+                <div class="cp-player-score" id="cp-leaderboard-score">128,450</div>
+            </li>
+            <li class="cp-leaderboard-item">
+                <div class="cp-rank">43</div>
+                <div class="cp-player-info">
+                    <div class="cp-player-name">BulletDodger</div>
+                    <div class="cp-player-level">Level 42 &#8226; Quest 17/25</div>
+                </div>
+                <div class="cp-player-score">127,990</div>
+            </li>
+            <li class="cp-leaderboard-item">
+                <div class="cp-rank">44</div>
+                <div class="cp-player-info">
+                    <div class="cp-player-name">PhoenixRising</div>
+                    <div class="cp-player-level">Level 41 &#8226; Quest 17/25</div>
+                </div>
+                <div class="cp-player-score">125,680</div>
+            </li>
+        </ul>
+        <div class="dev-note" style="margin-top:16px;">&#9888;&#65039; Leaderboard is frontend placeholder. Real rankings will require backend authentication.</div>
+    </div>
+
+    <!-- COMMUNITY WALL (Public - Always Visible) -->
+    <div class="cp-wall">
+        <div class="cp-wall-header">&#128172; Community Wall</div>
+        <div class="dev-note" style="margin-bottom:18px;">&#128221; Open message board - leave a message for the community! (Frontend demo - messages not persisted)</div>
+
+        <!-- Post Form -->
+        <div class="cp-wall-post-form">
+            <div class="form-group">
+                <label for="cp-wall-username-input">Your Name</label>
+                <input type="text" id="cp-wall-username-input" placeholder="Enter your username..." value="">
+            </div>
+            <div class="form-group">
+                <label for="cp-wall-message-input">Message</label>
+                <textarea id="cp-wall-message-input" placeholder="Share your thoughts, strategies, or just say hi..."></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="postToWall()">&#128172; Post Message</button>
+        </div>
+
+        <!-- Messages List -->
+        <div class="cp-wall-messages" id="cp-wall-messages">
+            <!-- Developer Message Example -->
+            <div class="cp-wall-message dev-message">
+                <div class="cp-wall-message-header">
+                    <div class="cp-wall-username">SoloGameDeveloper</div>
+                    <div class="cp-wall-timestamp">2 hours ago</div>
+                </div>
+                <div class="cp-wall-message-body">
+                    Welcome to the Community Portal! &#127881; This is where you can connect with fellow players, track your progress, and see how you rank globally. I'm actively working on new features and updates - your feedback drives development. Keep surviving! &#128167;&#128165;
+                </div>
+            </div>
+
+            <div class="cp-wall-message">
+                <div class="cp-wall-message-header">
+                    <div class="cp-wall-username">ShadowBlade92</div>
+                    <div class="cp-wall-timestamp">5 hours ago</div>
+                </div>
+                <div class="cp-wall-message-body">
+                    Just hit level 99! This game is amazing. The progression system is so satisfying. Can't wait to see what's next! &#128293;
+                </div>
+            </div>
+
+            <div class="cp-wall-message">
+                <div class="cp-wall-message-header">
+                    <div class="cp-wall-username">StormChaser</div>
+                    <div class="cp-wall-timestamp">8 hours ago</div>
+                </div>
+                <div class="cp-wall-message-body">
+                    Pro tip: Focus on upgrading your camp buildings early. Defense is everything in later waves! &#128737;&#65039;
+                </div>
+            </div>
+
+            <div class="cp-wall-message dev-message">
+                <div class="cp-wall-message-header">
+                    <div class="cp-wall-username">SoloGameDeveloper</div>
+                    <div class="cp-wall-timestamp">1 day ago</div>
+                </div>
+                <div class="cp-wall-message-body">
+                    Quick update: Working on the next major release! Expect new enemies, upgraded skill trees, and enhanced visuals. Alpha v0.400 coming soon! Stay tuned! &#128295;&#128640;
+                </div>
+            </div>
+
+            <div class="cp-wall-message">
+                <div class="cp-wall-message-header">
+                    <div class="cp-wall-username">AquaWarrior</div>
+                    <div class="cp-wall-timestamp">1 day ago</div>
+                </div>
+                <div class="cp-wall-message-body">
+                    Love the bullet hell mechanics! Reminds me of classic arcade games but with modern RPG depth. &#127918;
+                </div>
+            </div>
+
+            <div class="cp-wall-message">
+                <div class="cp-wall-message-header">
+                    <div class="cp-wall-username">NightHunter</div>
+                    <div class="cp-wall-timestamp">2 days ago</div>
+                </div>
+                <div class="cp-wall-message-body">
+                    The grind is real but so worth it. Just unlocked all achievements! Time to push for #1 on the leaderboard. &#127942;
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 </main>
 
 <div class="page-turn-hint" id="page-turn-hint">scroll &#8595;</div>
@@ -1911,6 +2316,9 @@ function showTab(t){
         document.getElementById('quest-login-gate').style.display=isLoggedIn?'none':'block';
         document.getElementById('quest-content').style.display=isLoggedIn?'block':'none';
     }
+    if(t==='community'){
+        updateCommunityPortalUI();
+    }
 }
 
 function toggleMobileNav(){document.getElementById('left-tabs').classList.toggle('open');}
@@ -1925,6 +2333,42 @@ function updateAuthUI(){
         if(isLoggedIn){document.getElementById('profile-username').textContent=mockUser.username;document.getElementById('profile-email').textContent=mockUser.email;document.getElementById('settings-username').value=mockUser.username;document.getElementById('settings-email').value=mockUser.email;}}
     var ig=document.getElementById('inbox-gate'),ic=document.getElementById('inbox-content');
     if(ig&&ic){ig.style.display=isLoggedIn?'none':'block';ic.style.display=isLoggedIn?'block':'none';}
+}
+
+// Community Portal Functions
+function updateCommunityPortalUI(){
+    var dg=document.getElementById('community-dashboard-gate'),dc=document.getElementById('community-dashboard-content');
+    if(dg&&dc){
+        dg.style.display=isLoggedIn?'none':'block';
+        dc.style.display=isLoggedIn?'block':'none';
+        if(isLoggedIn){
+            document.getElementById('cp-player-name').textContent=mockUser.username;
+            document.getElementById('cp-leaderboard-username').textContent=mockUser.username;
+            document.getElementById('cp-wall-username-input').value=mockUser.username;
+            document.getElementById('cp-current-user-rank').style.display='flex';
+        }else{
+            document.getElementById('cp-current-user-rank').style.display='none';
+            document.getElementById('cp-wall-username-input').value='';
+        }
+    }
+}
+
+function postToWall(){
+    var username=document.getElementById('cp-wall-username-input').value.trim();
+    var message=document.getElementById('cp-wall-message-input').value.trim();
+    if(!username||!message){
+        alert('Please enter both your name and a message!');
+        return;
+    }
+    var wallMessages=document.getElementById('cp-wall-messages');
+    var newMsg=document.createElement('div');
+    var isDev=(username.toLowerCase()==='sologamedeveloper'||username.toLowerCase()==='solo game developer'||username.toLowerCase()==='timmietooth'||username.toLowerCase()==='timmiee');
+    newMsg.className='cp-wall-message'+(isDev?' dev-message':'');
+    var now=new Date();
+    newMsg.innerHTML='<div class="cp-wall-message-header"><div class="cp-wall-username">'+escHtml(username)+'</div><div class="cp-wall-timestamp">Just now</div></div><div class="cp-wall-message-body">'+escHtml(message)+'</div>';
+    wallMessages.insertBefore(newMsg,wallMessages.firstChild);
+    document.getElementById('cp-wall-message-input').value='';
+    setTimeout(function(){newMsg.scrollIntoView({behavior:'smooth',block:'nearest'});},100);
 }
 
 function submitContactForm(e){
